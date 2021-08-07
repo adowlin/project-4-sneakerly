@@ -1,7 +1,45 @@
+@font-face {
+    font-family: 'Newake';
+    src: url('fonts/NewakeDemo.woff') format('woff'), url('fonts/NewakeDemo.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProjektBlackbird';
+    src: url('fonts/ProjektBlackbird-Regular.woff') format('woff'), url('fonts/ProjektBlackbird-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-size: 1em;
+}
+
+body {
+    background-color: rgb(235, 235, 235);
+    font-family: ProjektBlackbird, sans-serif;
+}
+
 .navbar {
     height: 15vh;
     background-color: transparent;
     z-index: 999999;
+    font-size: 1.25rem;
+}
+
+#navigation #logo {
+    font-family: Newake, sans-serif;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    /*text-shadow: 0.1rem 0.1rem 0 rgb(196, 146, 110), 0.2rem 0.2rem 0 rgb(196, 146, 110), 0.3rem 0.3rem 0 rgb(196, 146, 110);*/
+    -webkit-text-stroke: 0.15rem rgba(43, 22, 22, 0.9);
+}
+
+#navigation #logo,
+#navigation .nav-item,
+#navigation a {
+    color: rgb(166, 221, 221);
 }
 
 .nav-shape {
@@ -9,7 +47,7 @@
     height: 40vh;
     margin-top: -40vh;
     transform: skewY(-10deg);
-    background-color: rgb(63, 55, 201);
+    background-color: rgb(82, 72, 156);
     z-index: -999;
 }
 
