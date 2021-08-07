@@ -1,0 +1,19 @@
+.navbar {
+    height: 15vh;
+    background-color: transparent;
+    z-index: 999999;
+}
+
+.nav-shape {
+    width: 200%;
+    height: 40vh;
+    margin-top: -40vh;
+    transform: skewY(-10deg);
+    background-color: rgb(63, 55, 201);
+    z-index: -999;
+}
+
+.message-container,
+.page-header {
+    margin-top: 25vh;
+}
