@@ -41,7 +41,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Home</a>
                             </li>
@@ -64,6 +64,7 @@
                     </div>
                 </div>
             </nav>
+            <div class="nav-shape fixed-top"></div>
             <div class="nav-shape"></div>
         </header>
 
@@ -76,6 +77,23 @@
 
         {% block content %}
         {% endblock %}
+
+        <div class="foot-shape fixed-bottom"></div>
+        <footer class="container-fluid fixed-bottom">
+            <div class="footer row">
+                <h2 class="col-12 text-center">Support</h2>
+                <div class="col-12 text-center">
+                    <div class="row">
+                        <a class="col-6" href="">FAQ</a>
+                        <a class="col-6" href="">Instagram</a>
+                    </div>
+                    <div class="row">
+                        <a class="col-6" href="">Email</a>
+                        <a class="col-6" href="">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
         {% block postloadjs %}
         {% endblock %}
