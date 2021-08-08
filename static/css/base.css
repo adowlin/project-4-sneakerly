@@ -101,3 +101,13 @@ footer {
     text-decoration: none;
     color: rgb(166, 221, 221);
 }
+
+@media only screen and (min-width: 492px) {
+    .foot-shape {
+        height: 35vh;
+    }
+
+    footer {
+        height: 17vh;
+    }
+}
