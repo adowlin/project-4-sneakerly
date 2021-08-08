@@ -25,6 +25,13 @@ body {
     margin: 0;
 }
 
+.cta--btn {
+    background-color: rgb(244, 91, 105);
+    color: rgb(235, 235, 235);
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
 /* ---------------------------------------- Navbar */
 
 .navbar {
@@ -78,7 +85,7 @@ body {
     margin-top: 25vh;
 }
 
-.content-container {
+.content {
     padding-bottom: 25vh;
 }
 
@@ -104,26 +111,50 @@ body {
     border-radius: 12px;
 }
 
-.content-container > h3,
-.content-container > p,
-.content-container > .smile-icon {
+.main-content-container > h3,
+.main-content-container > p,
+.main-content-container > .smile-icon {
     color: rgb(82, 72, 156);
 }
 
-.content-container > p{
+.main-content-container > p{
     font-size: 1rem;
 }
 
-.content-container .cta--btn {
-    background-color: rgb(244, 91, 105);
-    color: rgb(235, 235, 235);
-    font-size: 1.5rem;
-    text-decoration: none;
-}
-
-.content-container > .smile-icon {
+.main-content-container > .smile-icon {
     margin-top: 2rem;
     font-size: 2rem;
+}
+
+.sub-content-container {
+    margin-top: 1rem;
+    padding: 0;
+}
+
+.sub-content-container > .clean-img {
+    width: 100%;
+    margin-top: 1rem;
+    height: 25rem;
+    padding: 0;
+    background: url('../images/clean-shoes.jpg') no-repeat scroll center;
+    background-size: cover;
+}
+
+.sub-content-container > .return-img {
+    width: 100%;
+    margin-top: 2rem;
+    height: 25rem;
+    padding: 0;
+    background: url('../images/returns.jpg') no-repeat scroll center;
+    background-size: cover;
+}
+
+.sub-content-container > .info-card {
+    margin-top: -3rem;
+    margin-bottom: 2rem;
+    color: rgb(82, 72, 156);
+    background-color: rgb(166, 221, 221);
+    font-size: 1.2rem;
 }
 
 /* ---------------------------------------- Footer */
