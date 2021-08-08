@@ -163,6 +163,27 @@ body {
     font-size: 1.2rem;
 }
 
+/* ---------------------------------------- Register */
+
+.auth-head {
+    margin-top: 1rem;
+    color: rgb(82, 72, 156);
+}
+
+.form-card {
+    background: rgba(166, 221, 221, 0.9);
+    border-radius: 5px;
+    border: 0px;
+    color: rgb(82, 72, 156);
+}
+
+#signup_form input {
+    background-color: rgba(163, 216, 216);
+    border: 1px solid rgb(82, 72, 156);
+    border-radius: 5px;
+    width: 100%;
+}
+
 /* ---------------------------------------- Footer */
 
 footer {

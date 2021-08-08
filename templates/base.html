@@ -75,8 +75,10 @@
             <div class="message-container"></div>
         {% endif %}
 
-        {% block page_header %}
-        {% endblock %}
+        <div class="page-header row">
+            {% block page_header %}
+            {% endblock %}
+        </div>
 
         <div class="content">
             {% block content %}
@@ -101,8 +103,8 @@
         </footer>
 
         {% block postloadjs %}
-            <script src="{% static 'js/script.js' %}"></script>
-        {% endblock %}
 
+        {% endblock %}
+        <script src="{% static 'js/script.js' %}"></script>
     </body>
 </html>
