@@ -21,6 +21,8 @@ body {
     font-family: ProjektBlackbird, sans-serif;
 }
 
+/* ---------------------------------------- Navbar */
+
 .navbar {
     height: 15vh;
     background-color: transparent;
@@ -32,23 +34,37 @@ body {
     font-family: Newake, sans-serif;
     text-transform: uppercase;
     font-size: 2.5rem;
-    /*text-shadow: 0.1rem 0.1rem 0 rgb(196, 146, 110), 0.2rem 0.2rem 0 rgb(196, 146, 110), 0.3rem 0.3rem 0 rgb(196, 146, 110);*/
     -webkit-text-stroke: 0.15rem rgba(43, 22, 22, 0.9);
 }
 
 #navigation #logo,
 #navigation .nav-item,
-#navigation a {
+#navigation a,
+#navModal .nav-item, 
+#navModal a {
     color: rgb(166, 221, 221);
 }
 
 .nav-shape {
     width: 200%;
-    height: 40vh;
-    margin-top: -40vh;
+    height: 60vh;
+    margin-top: -60vh;
     transform: skewY(-10deg);
     background-color: rgb(82, 72, 156);
     z-index: -999;
+}
+
+#navModal {
+    margin-top: 5rem;
+}
+
+/* Glassmorphism effect adapted from: https://ui.glass/generator/ */
+#navModal>.modal-dialog>.modal-content {
+    background: rgba(82, 72, 156, 0.75);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .message-container,
