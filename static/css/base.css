@@ -60,9 +60,10 @@ body {
     width: 200%;
     height: 60vh;
     margin-top: -60vh;
-    transform: skewY(-10deg);
     background-color: rgb(82, 72, 156);
     z-index: -999;
+    transition: transform 0.25s;
+	will-change: transform;
 }
 
 #navModal {
@@ -86,7 +87,7 @@ body {
 }
 
 .content {
-    padding-bottom: 25vh;
+    padding-bottom: 2rem;
 }
 
 /* ---------------------------------------- Home */
@@ -101,7 +102,7 @@ body {
 }
 
 .home-header {
-    margin-top: 2.5rem;
+    margin-top: 6rem;
     color: rgb(82, 72, 156);
 }
 
@@ -159,34 +160,16 @@ body {
 
 /* ---------------------------------------- Footer */
 
-.foot-shape {
-    width: 100%;
-    height: 20vh;
-    margin-top: 55vh;
-    transform: skewY(-10deg);
-    background-color: rgb(82, 72, 156);
-    z-index: 999;
-}
-
 footer {
-    height: 15vh;
+    height: 20vh;
     background-color: rgb(82, 72, 156);
     color: rgb(166, 221, 221);
     z-index: 999999;
     font-size: 1.25rem;
+    padding-top: 2rem;
 }
 
 .footer > .col-12 > .row > .col-6 {
     text-decoration: none;
     color: rgb(166, 221, 221);
-}
-
-@media only screen and (min-width: 492px) {
-    .foot-shape {
-        height: 35vh;
-    }
-
-    footer {
-        height: 17vh;
-    }
 }

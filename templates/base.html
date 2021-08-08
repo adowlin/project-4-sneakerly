@@ -50,10 +50,10 @@
                                 <a class="nav-link" href="#">All Sneakers</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Register</a>
+                                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Log In</a>
+                                <a class="nav-link" href="{% url 'account_login' %}">Log In</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">FAQ</a>
@@ -66,7 +66,7 @@
                 </div>
             </nav>
             <div class="nav-shape fixed-top"></div>
-            <div class="nav-shape"></div>
+            <div class="nav-shape" id="main-nav-shape"></div>
         </header>
 
         {% if messages %}
@@ -82,8 +82,7 @@
             {% endblock %}
         </div>
 
-        <div class="foot-shape fixed-bottom"></div>
-        <footer class="container-fluid fixed-bottom">
+        <footer class="container-fluid">
             <div class="footer row">
                 <h2 class="col-12 text-center">Support</h2>
                 <div class="col-12 text-center">
@@ -100,6 +99,7 @@
         </footer>
 
         {% block postloadjs %}
+            <script src="{% static 'js/script.js' %}"></script>
         {% endblock %}
 
     </body>
