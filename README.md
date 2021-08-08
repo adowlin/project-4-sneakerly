@@ -22,9 +22,13 @@ The User Experience for this site was planned & developed using the [5 Planes of
 
 ### Structure
 #### Flowchart
+- Flowchart created using [Lucidchart](https://www.lucidchart.com):<br>
+    [Flowchart PNG](/readme-assets/images/sneakerly-flowchart2.png)
 
 ### Skeleton
 #### Wireframes
+- Wireframes created using [Balsamiq](https://balsamiq.com/):<br>
+    [Wireframes PDF](/readme-assets/sneakerly-wireframes1.pdf)
 
 ### Surface
 
