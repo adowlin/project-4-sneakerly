@@ -42,6 +42,7 @@ body {
 }
 
 #navigation #logo {
+    margin-left: 1rem;
     font-family: Newake, sans-serif;
     text-transform: uppercase;
     font-size: 2.5rem;
@@ -54,6 +55,10 @@ body {
 #navModal .nav-item, 
 #navModal a {
     color: rgb(166, 221, 221);
+}
+
+.navbar-toggler {
+    margin-right: 1rem;
 }
 
 .nav-shape {
@@ -172,4 +177,22 @@ footer {
 .footer > .col-12 > .row > .col-6 {
     text-decoration: none;
     color: rgb(166, 221, 221);
+}
+
+/* ---------------------------------------- Media Queries */
+
+@media only screen and (min-width: 576px) {
+    #navigation #logo {
+        margin-left: 2rem;
+        margin-top: 1rem;
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #navigation #logo {
+        margin-left: 3rem;
+        margin-top: 2rem;
+        font-size: 4rem;
+    }
 }
