@@ -16,7 +16,9 @@ const update = () => {
     }
 	
 	navShape.style.transform = `skewY(${ deg }deg)`;
-    imgShape.style.transform = `skewY(${ deg }deg)`;
+    if (imgShape) {
+        imgShape.style.transform = `skewY(${ deg }deg)`;
+    }
 	
 	currentPos = newPos;
 	
