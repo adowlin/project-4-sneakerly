@@ -78,6 +78,17 @@ body {
     margin-top: 25vh;
 }
 
+/* ---------------------------------------- Home */
+
+.hero-image-shape {
+    width: 100%;
+    height: 55vh;
+    margin-top: -7vh;
+    transform: skewY(-10deg);
+    background: url('../images/pastel-af1.jpg') no-repeat fixed center;
+    background-size: cover;
+}
+
 /* ---------------------------------------- Footer */
 
 .foot-shape {
