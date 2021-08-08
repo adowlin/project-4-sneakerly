@@ -78,6 +78,10 @@ body {
     margin-top: 25vh;
 }
 
+.content-container {
+    padding-bottom: 25vh;
+}
+
 /* ---------------------------------------- Home */
 
 .hero-image-shape {
@@ -89,6 +93,39 @@ body {
     background-size: cover;
 }
 
+.home-header {
+    margin-top: 2.5rem;
+    color: rgb(82, 72, 156);
+}
+
+.home-header > hr {
+    color: rgb(244, 91, 105);
+    border: 0.1rem solid;
+    border-radius: 12px;
+}
+
+.content-container > h3,
+.content-container > p,
+.content-container > .smile-icon {
+    color: rgb(82, 72, 156);
+}
+
+.content-container > p{
+    font-size: 1rem;
+}
+
+.content-container .cta--btn {
+    background-color: rgb(244, 91, 105);
+    color: rgb(235, 235, 235);
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.content-container > .smile-icon {
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
 /* ---------------------------------------- Footer */
 
 .foot-shape {
@@ -97,7 +134,7 @@ body {
     margin-top: 55vh;
     transform: skewY(-10deg);
     background-color: rgb(82, 72, 156);
-    z-index: -999;
+    z-index: 999;
 }
 
 footer {
