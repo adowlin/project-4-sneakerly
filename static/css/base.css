@@ -102,7 +102,7 @@ body {
     height: 55vh;
     margin-top: -7vh;
     transform: skewY(-10deg);
-    background: url('../images/pastel-af1.jpg') no-repeat fixed center;
+    background: url('/media/pastel-af1.jpg') no-repeat fixed center;
     background-size: cover;
 }
 
@@ -142,7 +142,7 @@ body {
     margin-top: 1rem;
     height: 25rem;
     padding: 0;
-    background: url('../images/clean-shoes.jpg') no-repeat scroll center;
+    background: url('/media/clean-shoes.jpg') no-repeat scroll center;
     background-size: cover;
 }
 
@@ -151,7 +151,7 @@ body {
     margin-top: 2rem;
     height: 25rem;
     padding: 0;
-    background: url('../images/returns.jpg') no-repeat scroll center;
+    background: url('/media/returns.jpg') no-repeat scroll center;
     background-size: cover;
 }
 
