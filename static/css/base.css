@@ -109,12 +109,14 @@ body {
     background-size: cover;
 }
 
-.home-header {
-    margin-top: 6rem;
+.sub-header > h1,
+.sub-header > h2 {
+    font-size: 2.5rem;
+    margin-top: 4rem;
     color: rgb(82, 72, 156);
 }
 
-.home-header > hr {
+.sub-header > hr {
     color: rgb(244, 91, 105);
     border: 0.1rem solid;
     border-radius: 12px;
@@ -225,6 +227,15 @@ body {
     position: fixed;
     background: rgb(0, 0, 0, 0.5);
     z-index: -99;
+}
+
+.card {
+    height: 5rem;
+}
+
+.card-img-top {
+    height: 15rem;
+    object-fit: cover;
 }
 
 /* ---------------------------------------- Footer */
