@@ -97,11 +97,14 @@ body {
 
 /* ---------------------------------------- Home */
 
-.hero-image-shape {
+.head-image-shape {
     width: 100%;
     height: 55vh;
     margin-top: -7vh;
     transform: skewY(-10deg);
+}
+
+#hero-image-shape {
     background: url('/media/pastel-af1.jpg') no-repeat fixed center;
     background-size: cover;
 }
@@ -192,6 +195,38 @@ body {
     border-radius: 5px;
 }
 
+/* ---------------------------------------- All Products */
+
+#prod-image-shape {
+    background: url('/media/forumlow.jpg') no-repeat fixed center;
+    background-size: cover;
+    z-index: -999;
+}
+
+.page-header > #prod-image-head > h1 {
+    color: rgb(166, 221, 221);
+    font-size: 15vw;
+    margin-top: -40vh;
+    text-shadow: 2px 2px rgb(82, 72, 156);
+}
+
+.page-header > #prod-image-head > p {
+    color: rgb(166, 221, 221);
+    font-size: 10vw;
+    margin-top: -30vh;
+    text-shadow: 2px 2px rgb(82, 72, 156);
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: rgb(0, 0, 0, 0.5);
+    z-index: -99;
+}
+
 /* ---------------------------------------- Footer */
 
 footer {
@@ -216,6 +251,14 @@ footer {
         margin-top: 1rem;
         font-size: 3rem;
     }
+
+    .page-header > #prod-image-head > h1 {
+        font-size: 10vw;
+    }
+    
+    .page-header > #prod-image-head > p {
+        font-size: 5vw;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -223,5 +266,23 @@ footer {
         margin-left: 3rem;
         margin-top: 2rem;
         font-size: 4rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #navigation #logo {
+        margin-left: 2rem;
+        margin-top: 1rem;
+        font-size: 3rem;
+    }
+
+    .page-header > #prod-image-head > h1 {
+        font-size: 7vw;
+        margin-top: -35vh;
+    }
+    
+    .page-header > #prod-image-head > p {
+        font-size: 4vw;
+        margin-top: -20vh;
     }
 }
