@@ -258,7 +258,19 @@ body {
 
 /* ---------------------------------------- Product Detail */
 
+#prod-name-header,
+.product-container {
+    color: rgb(82, 72, 156);
+}
 
+.product-info {
+    font-size: 1.25rem;
+}
+
+.date-picker-form > input {
+    color: rgb(82, 72, 156);
+    background-color: rgb(166, 221, 221, 0.5);
+}
 
 /* ---------------------------------------- Footer */
 
@@ -336,5 +348,9 @@ footer {
 
     .product-container {
         margin-top: 3rem;
+    }
+
+    .product-info {
+        font-size: 1.5rem;
     }
 }
