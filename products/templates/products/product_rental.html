@@ -10,23 +10,26 @@
         <div class="product-container">
             <div class="row">
                 <div class="product-image col-sm-12 col-md-6 offset-md-3 mb-3">
-                    <img class="card-img-top img-fluid col-sm-12 col-md-6 offset-md-3 mb-3" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid mb-3" src="{{ product.image.url }}" alt="{{ product.name }}">
                 </div>
             </div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-12 col-md-6 offset-md-3">
                     <div class="product-info mb-3">
                         <p class="mb-0">{{ product.name }}</p>
                         <p class="mb-0">{{ product.size }}</p>
                         <p class="mb-0">€{{ product.price }} Per Day</p>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="row">
-                        <form action="" class="date-picker-form"></form>
-                        <a href="" class="text-center col-sm-5 col-md-4">
-                            <button class="btn rent--btn"><i class="bi bi-cart"></i> Rent</button>
-                        </a>
+                        <form action="" class="date-picker-form">
+                            <label for="startDate" class="form-label">Choose Rental Start Date</label>
+                            <input type="date" class="form-control" id="startDate" name="startDate" min="2021-08-11" max="2021-10-11" aria-describedby="startDate">
+                            <label for="startDate" class="form-label mt-2">Number of Rental Days</label>
+                            <input type="number" class="form-control" id="rentDays" name="rentDays" min="1" max="7" aria-describedby="rentDays">
+                            <button type="submit" class="btn rent--btn col-6 offset-3 mt-2"><i class="bi bi-cart"></i> Rent</button>
+                        </form>
                     </div>
                 </div>
             </div>
