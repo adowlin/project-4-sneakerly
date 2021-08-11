@@ -20,7 +20,7 @@
                 {% for product in products %}
                     <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-3 product-cols">
                         <div class="card h-100 border-0">
-                            <a href="">
+                            <a href="{% url 'product_rental' product.id %}">
                                 <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                             </a>
                             <div class="card-body pb-0">
@@ -38,7 +38,7 @@
                                             </p>
                                         {% endif %}
                                     </div>
-                                    <a href="" class="text-center col-5">
+                                    <a href="{% url 'product_rental' product.id %}" class="text-center col-5">
                                         <button class="btn rent--btn"><i class="bi bi-cart"></i> Rent</button>
                                     </a>
                                 </div>

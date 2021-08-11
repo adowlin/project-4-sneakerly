@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <h1 class="text-center" id="prod-name-header">{{ product.name }}</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid main-content-container">
+        <div class="product-container">
+            <div class="row">
+                <div class="product-image col-sm-12 col-md-6 offset-md-3 mb-3">
+                    <img class="card-img-top img-fluid col-sm-12 col-md-6 offset-md-3 mb-3" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="product-info mb-3">
+                        <p class="mb-0">{{ product.name }}</p>
+                        <p class="mb-0">{{ product.size }}</p>
+                        <p class="mb-0">€{{ product.price }} Per Day</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <form action="" class="date-picker-form"></form>
+                        <a href="" class="text-center col-sm-5 col-md-4">
+                            <button class="btn rent--btn"><i class="bi bi-cart"></i> Rent</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

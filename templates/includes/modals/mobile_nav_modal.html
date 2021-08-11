@@ -8,7 +8,7 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">All Sneakers</a>
+                        <a class="nav-link" href="{% url 'products' %}">All Sneakers</a>
                     </li>
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
