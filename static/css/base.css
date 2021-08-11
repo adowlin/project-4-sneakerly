@@ -292,6 +292,10 @@ footer {
     .page-header > #prod-image-head > p {
         font-size: 5vw;
     }
+    
+    .page-header > #prod-name-header {
+        margin-top: 7vw;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -317,6 +321,10 @@ footer {
     .page-header > #prod-image-head > p {
         font-size: 4vw;
         margin-top: -20vh;
+    }
+
+    .product-image > .img-fluid {
+        height: 30rem;
     }
 }
 
