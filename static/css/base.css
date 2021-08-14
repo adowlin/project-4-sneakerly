@@ -25,12 +25,30 @@ body {
     margin: 0;
 }
 
+/* ---------------------------------------- Buttons */
+
 .cta--btn {
     background-color: rgb(244, 91, 105);
     color: rgb(235, 235, 235);
     font-size: 1.5rem;
     text-decoration: none;
     text-shadow: 2px 2px rgba(43, 22, 22, 0.9);
+}
+
+.rent--btn,
+.green--btn {
+    color: rgb(235, 235, 235);
+    font-size: 1rem;
+    text-decoration: none;
+    text-shadow: 2px 2px rgba(43, 22, 22, 0.9);
+}
+
+.rent--btn {
+    background-color: rgb(242, 64, 79);
+}
+
+.green--btn {
+    background-color: rgb(43, 120, 120);
 }
 
 /* ---------------------------------------- Navbar */
@@ -246,14 +264,6 @@ body {
 
 .category-text {
     color: rgb(82, 72, 156);
-}
-
-.rent--btn {
-    background-color: rgb(242, 64, 79);
-    color: rgb(235, 235, 235);
-    font-size: 1rem;
-    text-decoration: none;
-    text-shadow: 2px 2px rgba(43, 22, 22, 0.9);
 }
 
 /* ---------------------------------------- Product Detail */

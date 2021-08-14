@@ -24,7 +24,7 @@
         <h2 class="text-center col-12">Booking Summary</h2>
         <hr class="text-center col-8 offset-2">
     </div>
-    <div class="container-fluid checkout-content-container">
+    <div class="container-fluid checkout-summary-container">
         <div class="row">
             <div class="col-5 offset-md-1 offset-lg-2 mb-1">
                 <a href="{% url 'product_rental' product.id %}">
@@ -40,8 +40,17 @@
                     <p class="my-0">Start: <span class="prod-info-variable">{{ start_date }}</span></p>
                     <p class="my-0">Total Price: <span class="prod-info-variable">€{{ total_cost }}</span></p>
                 </div>
+                <a href="{% url 'product_rental' product.id %}" class="btn rent--btn">
+                    <i class="bi bi-box-arrow-in-left"></i> Adjust Dates
+                </a>
             </div>
         </div>
+    </div>
+    <div class="row sub-header">
+        <h2 class="text-center col-12">Checkout</h2>
+        <hr class="text-center col-8 offset-2">
+    </div>
+    <div class="container-fluid checkout-form-container">
         <div class="row mt-2 checkout-form">
             <div class="col-12 col-lg-6 offset-lg-3">
                 <p class="text-center text-muted">Please fill out the form below to complete your order.</p>
@@ -61,6 +70,23 @@
                         {{ booking_form.street_address2 | as_crispy_field }}
                         {{ booking_form.county | as_crispy_field }}
                     </fieldset>
+                    <fieldset class="rounded px-3 mb-2">
+                        <legend class="fieldset-label small px-2 w-auto">Payment</legend>
+                        <!-- Stripe card element -->
+                        <div id="card-element" class="mb-2"></div>
+                        <!-- Display card errors -->
+                        <div id="card-errors" class="mb-3 text-danger" role="alert"></div>
+                    </fieldset>
+                    <div class="submit-button mt-5 mb-2">                    
+                        <button id="submit-button" class="btn green--btn">
+                            <i class="bi bi-lock"></i> Complete Booking
+                        </button>
+                        <p class="small text-danger my-0 col-12">
+                            <i class="bi bi-exclamation-circle"></i>
+                            <span>Your card will be charged ${{ total_cost }}.<br>
+                                Payment information will be saved to your profile.</span>
+                        </p>
+                    </div>
                 </form>
             </div>
         </div>
