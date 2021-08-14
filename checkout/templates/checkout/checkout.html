@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <style>
+        #checkout-prod-image {
+            background: url('{{ product.image.url }}') no-repeat fixed center;
+            background-size: cover;
+            z-index: -999;
+        }
+    </style>
+{% endblock %}
+
+{% block page_header %}
+    <div class="head-image-shape" id="checkout-prod-image"><div class="overlay"></div></div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid main-content-container">
+        <h2 class="text-center">Booking Summary</h2>
+        <div class="product-container">
+            {{ order_form }}
+            {{ start_date }}
+            {{ rent_days }}
+            {{ product.name }}
+        </div>
+    </div>
+{% endblock %}

@@ -272,6 +272,13 @@ body {
     background-color: rgb(166, 221, 221, 0.5);
 }
 
+/* ---------------------------------------- Checkout */
+
+/* #checkout-prod-image {
+    background-size: cover;
+    z-index: -999;
+} */
+
 /* ---------------------------------------- Footer */
 
 footer {
