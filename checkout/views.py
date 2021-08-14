@@ -10,21 +10,21 @@ def checkout(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     start_date = request.POST.get('startDate')
-    rent_days = int(request.POST.get('rentDays'))
-    total_price = product.price * rent_days
+    rental_days = int(request.POST.get('rentDays'))
+    total_cost = product.price * rental_days
 
-    if not rent_days:
+    if not rental_days:
         messages.error(request, "You haven't selected rental dates!")
         return redirect(reverse('products'))
 
-    order_form = BookingForm()
+    booking_form = BookingForm()
     template = 'checkout/checkout.html'
     context = {
-        'order_form': order_form,
+        'booking_form': booking_form,
         'product': product,
         'start_date': start_date,
-        'rent_days': rent_days,
-        'total_price': total_price,
+        'rental_days': rental_days,
+        'total_cost': total_cost,
     }
 
     return render(request, template, context)
