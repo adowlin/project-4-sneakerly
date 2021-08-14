@@ -13,16 +13,33 @@
 
 {% block page_header %}
     <div class="head-image-shape" id="checkout-prod-image"><div class="overlay"></div></div>
+    <div class="row" id="checkout-image-head">
+        <h1 class="col-12 text-center">Checkout</h1>
+    </div>
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid main-content-container">
-        <h2 class="text-center">Booking Summary</h2>
-        <div class="product-container">
-            {{ order_form }}
-            {{ start_date }}
-            {{ rent_days }}
-            {{ product.name }}
+    <div class="row sub-header">
+        <h2 class="text-center col-12">Booking Summary</h2>
+        <hr class="text-center col-8 offset-2">
+    </div>
+    <div class="container-fluid checkout-content-container">
+        <div class="row">
+            <div class="col-5 offset-md-1 offset-lg-2 mb-1">
+                <a href="{% url 'product_rental' product.id %}">
+                    <img class="w-100 card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </a>
+            </div>
+            <div class="col-7 col-md-6 col-lg-5">
+                <div class="product-info">
+                    <p class="my-0">{{ product.name }}</p>
+                    <p class="my-0">Size: <span class="prod-info-variable">{{ product.size }}</span></p>
+                    <p class="my-0">Price: <span class="prod-info-variable">€{{ product.price }} Per Day</span></p>
+                    <p class="my-0">Length: <span class="prod-info-variable">{{ rent_days }} Days</span></p>
+                    <p class="my-0">Start: <span class="prod-info-variable">{{ start_date }}</span></p>
+                    <p class="my-0">Total Price: <span class="prod-info-variable">€{{ total_price }}</span></p>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

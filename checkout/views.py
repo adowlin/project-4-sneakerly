@@ -11,6 +11,7 @@ def checkout(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     start_date = request.POST.get('startDate')
     rent_days = int(request.POST.get('rentDays'))
+    total_price = product.price * rent_days
 
     if not rent_days:
         messages.error(request, "You haven't selected rental dates!")
@@ -23,6 +24,7 @@ def checkout(request, product_id):
         'product': product,
         'start_date': start_date,
         'rent_days': rent_days,
+        'total_price': total_price,
     }
 
     return render(request, template, context)
