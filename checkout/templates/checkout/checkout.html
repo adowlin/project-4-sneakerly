@@ -77,8 +77,8 @@
                         <!-- Display card errors -->
                         <div id="card-errors" class="mb-3 text-danger" role="alert"></div>
                     </fieldset>
-                    <div class="submit-button mt-5 mb-2">                    
-                        <button id="submit-button" class="btn green--btn">
+                    <div class="submit-button ms-3 mb-2">                    
+                        <button id="submit-button" class="btn green--btn mb-2">
                             <i class="bi bi-lock"></i> Complete Booking
                         </button>
                         <p class="small text-danger my-0 col-12">
@@ -91,4 +91,11 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}

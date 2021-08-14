@@ -25,6 +25,8 @@ def checkout(request, product_id):
         'start_date': start_date,
         'rental_days': rental_days,
         'total_cost': total_cost,
+        'stripe_public_key': 'pk_test_51JORvtBQSuGyQwj4ISaaDySFXt4RhWUsFCpUP2hVa0PU8xsYg3PpMZrnzQxpABNij5W5r3PsRn2JQBQ8SHL4xE4D00CLngAK8z',
+        'client_secret': 'test_client_secret'
     }
 
     return render(request, template, context)
