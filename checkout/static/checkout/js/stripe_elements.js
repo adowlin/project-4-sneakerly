@@ -1,6 +1,8 @@
 /*
     Core logic/payment flow for this comes from here:
     https://stripe.com/docs/payments/accept-a-payment
+    Also adapted from here:
+    https://github.com/adowlin/boutique-ado-v1/blob/master/checkout/static/checkout/js/stripe_elements.js
     CSS from here: 
     https://stripe.com/docs/stripe-js
 */
@@ -26,3 +28,19 @@ var style = {
 };
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
+
+// Handle validation errors on card element
+card.addEventListener('change', function (event) {
+    var errorDiv = document.getElementById('card-errors');
+    if (event.error) {
+        var html = `
+            <span class="icon" role="alert">
+                <i class="fas fa-times"></i>
+            </span>
+            <span>${event.error.message}</span>
+        `;
+        $(errorDiv).html(html);
+    } else {
+        errorDiv.textContent = '';
+    }
+});
