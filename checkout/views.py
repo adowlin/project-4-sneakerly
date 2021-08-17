@@ -16,9 +16,10 @@ def checkout(request, product_id):
     start_date = request.POST.get('startDate')
     rental_days = int(request.POST.get('rentDays'))
     total_cost = int(product.price * rental_days)
+    stripe_total = round(total_cost * 100)
     stripe.api_key = stripe_secret_key
     intent = stripe.PaymentIntent.create(
-        amount=total_cost,
+        amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
     )
 
@@ -39,8 +40,9 @@ def checkout(request, product_id):
         'start_date': start_date,
         'rental_days': rental_days,
         'total_cost': total_cost,
-        'stripe_public_key': 'stripe_public_key',
-        'client_secret': 'intent.client_secret'
+        'stripe_total': stripe_total,
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
     }
 
     return render(request, template, context)
