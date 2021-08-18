@@ -6,6 +6,10 @@ from products.models import Product
 def bag(request, product_id):
     """ Add a product to the bag """
     bag = request.session.get('bag', {})
+    """
+    If a product is already in the bag, clear it.
+    Only 1 product can be rented at one time.
+    """
     if bag:
         bag.clear()
 

@@ -17,6 +17,10 @@ def all_products(request):
 def product_rental(request, product_id):
     """ View to show product rental booking page """
     bag = request.session.get('bag', {})
+    """
+    If a product is in the bag, clear it.
+    Only 1 product can be rented at one time.
+    """
     if bag:
         bag.clear()
 

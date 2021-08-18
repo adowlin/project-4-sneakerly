@@ -15,13 +15,19 @@ def bag_contents(request):
         total_cost = rental_days * product.price
         bag_items.append({
             'product_id': product_id,
-            'rental_dayes': rental_days,
+            'rental_days': rental_days,
             'product': product,
         })
 
-    context = {
-        'bag_items': bag_items,
-        'total_cost': total_cost,
-    }
+    if bag_items:
+        context = {
+            'bag_items': bag_items,
+            'total_cost': total_cost,
+            'rental_days': rental_days,
+        }
+    else:
+        context = {
+            
+        }
 
     return context
