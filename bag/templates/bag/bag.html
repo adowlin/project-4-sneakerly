@@ -25,32 +25,46 @@
         <hr class="text-center col-8 offset-2">
     </div>
     <div class="container-fluid checkout-summary-container">
-        <div class="row">
-            <div class="col-5 offset-md-1 offset-lg-2 mb-1">
-                <a href="{% url 'product_rental' product.id %}">
-                    <img class="w-100 card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                </a>
-            </div>
-            <div class="col-7 col-md-6 col-lg-5">
-                <div class="product-info">
-                    <p class="my-0">{{ product.name }}</p>
-                    <p class="my-0">Size: <span class="prod-info-variable">{{ product.size }}</span></p>
-                    <p class="my-0">Price: <span class="prod-info-variable">€{{ product.price }} Per Day</span></p>
-                    <p class="my-0">Length: <span class="prod-info-variable">{{ rental_days }} Days</span></p>
-                    <p class="my-0">Start: <span class="prod-info-variable">{{ start_date }}</span></p>
-                    <p class="my-0">Total Price: <span class="prod-info-variable">€{{ total_cost }}{{ origin }}</span></p>
+        {% if bag_items %}
+            <div class="row">
+                <div class="col-5 offset-md-1 offset-lg-2 mb-1">
+                    <a href="{% url 'product_rental' product.id %}">
+                        <img class="w-100 card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </a>
                 </div>
-                <a href="{% url 'checkout' product.id %}" class="btn green--btn">
-                    <i class="bi bi-box-arrow-in-right"></i> Continue to Checkout
-                </a>
+                <div class="col-7 col-md-6 col-lg-5">
+                    <div class="product-info">
+                        <p class="my-0">{{ product.name }}</p>
+                        <p class="my-0">Size: <span class="prod-info-variable">{{ product.size }}</span></p>
+                        <p class="my-0">Price: <span class="prod-info-variable">€{{ product.price }} Per Day</span></p>
+                        <p class="my-0">Length: <span class="prod-info-variable">{{ rental_days }} Days</span></p>
+                        <p class="my-0">Start: <span class="prod-info-variable">{{ start_date }}</span></p>
+                        <p class="my-0">Total Price: <span class="prod-info-variable">€{{ total_cost }}{{ origin }}</span></p>
+                    </div>
+                    <a href="{% url 'checkout' product.id %}" class="btn green--btn">
+                        <i class="bi bi-box-arrow-in-right"></i> Continue to Checkout
+                    </a>
+                    <a href="{% url 'product_rental' product.id %}" id="remove-button" class="btn rent--btn col-5 offset-2">
+                        <i class="bi bi-x-circle"></i> Cancel
+                    </a>
+                </div>
             </div>
-        </div>
+        {% else %}
+            <div class="row">
+                <div class="col-12 col-lg-6 offset-lg-3">
+                    <p class="text-center text-muted">
+                        You haven't selected any item to rent!<br>
+                        <a href="{% url 'products' %}" class="btn rent--btn mt-2">
+                            <i class="bi bi-box-arrow-in-left"></i> Back To Products
+                        </a>
+                    </p>
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+    
 {% endblock %}

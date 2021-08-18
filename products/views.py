@@ -16,6 +16,9 @@ def all_products(request):
 
 def product_rental(request, product_id):
     """ View to show product rental booking page """
+    bag = request.session.get('bag', {})
+    if bag:
+        bag.clear()
 
     product = get_object_or_404(Product, pk=product_id)
 
