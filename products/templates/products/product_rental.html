@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-12 col-md-3">
                     <div class="row">
-                        <form method="POST" action="{% url 'checkout' product.id %}" class="date-picker-form">
+                        <form method="POST" action="{% url 'bag' product.id %}" class="date-picker-form">
                             {% csrf_token %}
                             <label for="startDate" class="form-label">Choose Rental Start Date:</label>
                             <input type="date" class="form-control" id="startDate" name="startDate" min="2021-08-11" max="2021-10-11" aria-describedby="startDate">
