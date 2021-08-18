@@ -20,8 +20,12 @@ class Booking(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     order_date = models.DateTimeField(auto_now_add=True)
-    start_date = models.DateTimeField(auto_now_add=True)
+    start_date = models.DateTimeField(auto_now_add=False)
     rental_days = models.IntegerField(null=False, blank=False, default=0)
+    product = models.CharField(
+        max_length=500, null=False, blank=False, default='')
+    product_size = models.CharField(
+        max_length=4, null=False, blank=False, default='')
     product_price = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
     total_cost = models.DecimalField(
