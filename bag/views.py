@@ -6,6 +6,8 @@ from products.models import Product
 def bag(request, product_id):
     """ Add a product to the bag """
     bag = request.session.get('bag', {})
+    if bag:
+        bag.clear()
 
     product = get_object_or_404(Product, pk=product_id)
     start_date = request.POST.get('startDate')
@@ -13,10 +15,10 @@ def bag(request, product_id):
     total_cost = int(product.price * rental_days)
     stripe_total = round(total_cost * 100)
 
-    bag[start_date] = start_date
-    bag[rental_days] = rental_days
-    bag[total_cost] = total_cost
-    bag[stripe_total] = stripe_total
+    bag[product_id] = rental_days
+    # bag[start_date] = start_date
+    # bag[total_cost] = total_cost
+    # bag[stripe_total] = stripe_total
 
     context = {
         'product': product,
@@ -27,4 +29,5 @@ def bag(request, product_id):
     }
 
     request.session['bag'] = bag
+    print(request.session['bag'])
     return render(request, 'bag/bag.html', context)

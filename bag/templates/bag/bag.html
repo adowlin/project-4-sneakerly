@@ -41,13 +41,15 @@
                         <p class="my-0">Start: <span class="prod-info-variable">{{ start_date }}</span></p>
                         <p class="my-0">Total Price: <span class="prod-info-variable">€{{ total_cost }}{{ origin }}</span></p>
                     </div>
-                    <a href="{% url 'checkout' product.id %}" class="btn green--btn">
-                        <i class="bi bi-box-arrow-in-right"></i> Continue to Checkout
-                    </a>
-                    <a href="{% url 'product_rental' product.id %}" id="remove-button" class="btn rent--btn col-5 offset-2">
-                        <i class="bi bi-x-circle"></i> Cancel
-                    </a>
                 </div>
+            </div>
+            <div class="row mt-2">
+                <a href="{% url 'checkout' product.id %}" class="btn green--btn col-4 offset-1">
+                    <i class="bi bi-box-arrow-in-right"></i> Confirm
+                </a>
+                <a href="{% url 'product_rental' product.id %}" id="remove-button" class="btn rent--btn col-4 offset-2">
+                    <i class="bi bi-x-circle"></i> Cancel
+                </a>
             </div>
         {% else %}
             <div class="row">
