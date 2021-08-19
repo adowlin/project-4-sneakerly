@@ -22,7 +22,7 @@ class Booking(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     order_date = models.DateTimeField(auto_now_add=True)
-    start_date = models.DateTimeField(auto_now_add=False)
+    start_date = models.DateTimeField(auto_now_add=False, null=True)
     rental_days = models.IntegerField(null=False, blank=False, default=0)
     product = models.CharField(
         max_length=500, null=False, blank=False, default='')

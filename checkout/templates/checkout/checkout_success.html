@@ -23,26 +23,26 @@
     <div class="row sub-header">
         <h2 class="text-center col-12">Booking Confirmed!</h2>
         <hr class="text-center col-8 offset-2">
-        <p class="text-black">Your order information is below. A confirmation email will be sent to {{ order.email }}</p>
+        <p class="text-black">Your booking information is below. A confirmation email will be sent to {{ booking.email }}</p>
     </div>
     <div class="container-fluid order-confirmation-container">
-        <div class="row">
-            <div class="col-5 offset-md-1 offset-lg-2 mb-1">
-                <a href="{% url 'product_rental' product.id %}">
-                    <img class="w-100 card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                </a>
-            </div>
-            <div class="col-7 col-md-6 col-lg-5">
-                <div class="product-info">
-                    <p class="my-0">{{ product.name }}</p>
-                    <p class="my-0">Size: <span class="prod-info-variable">{{ product.size }}</span></p>
-                    <p class="my-0">Price: <span class="prod-info-variable">€{{ product.price }} Per Day</span></p>
-                    <p class="my-0">Length: <span class="prod-info-variable">{{ rental_days }} Days</span></p>
-                    <p class="my-0">Start: <span class="prod-info-variable">{{ start_date }}</span></p>
-                    <p class="my-0">Total Price: <span class="prod-info-variable">€{{ total_cost }}</span></p>
+        {% for item in booking.lineitems.all %}
+            <div class="row">
+                <div class="col-5 offset-md-1 offset-lg-2 mb-1">
+                    <img class="w-100 card-img-top" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                </div>
+                <div class="col-7 col-md-6 col-lg-5">
+                    <div class="product-info">
+                        <p class="my-0">{{ item.product.name }}</p>
+                        <p class="my-0">Size: <span class="prod-info-variable">{{ item.product.size }}</span></p>
+                        <p class="my-0">Price: <span class="prod-info-variable">€{{ item.product.price }} Per Day</span></p>
+                        <p class="my-0">Length: <span class="prod-info-variable">{{ item.rental_days }} Days</span></p>
+                        <p class="my-0">Start: <span class="prod-info-variable">{{ item.start_date }}</span></p>
+                        <p class="my-0">Total Price: <span class="prod-info-variable">€{{ booking.total_cost }}</span></p>
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endfor %}
         <div class="row order-info">
             <div class="col-12 col-md-8 offset-md-2">
                 <p class="my-0">Booking Number: <span class="prod-info-variable">{{ booking.booking_number }}</span></p>
@@ -67,7 +67,7 @@
                 <p class="mb-0">Address 1:</p>
             </div>
             <div class="col-12 col-md-8 text-md-right">
-                <p class="mb-0 prod-info-variable">{{ order.street_address1 }}</p>
+                <p class="mb-0 prod-info-variable">{{ booking.street_address1 }}</p>
             </div>
         </div>
         {% if order.street_address2 %}
@@ -76,7 +76,7 @@
                     <p class="mb-0">Address 2:</p>
                 </div>
                 <div class="col-12 col-md-8 text-md-right">
-                    <p class="mb-0 prod-info-variable">{{ order.street_address2 }}</p>
+                    <p class="mb-0 prod-info-variable">{{ booking.street_address2 }}</p>
                 </div>
             </div>
         {% endif %}
@@ -86,7 +86,7 @@
                     <p class="mb-0">County:</p>
                 </div>
                 <div class="col-12 col-md-8 text-md-right">
-                    <p class="mb-0 prod-info-variable">{{ order.county }}</p>
+                    <p class="mb-0 prod-info-variable">{{ booking.county }}</p>
                 </div>
             </div>
         {% endif %}
@@ -95,7 +95,7 @@
                 <p class="mb-0">Town or City:</p>
             </div>
             <div class="col-12 col-md-8 text-md-right">
-                <p class="mb-0 prod-info-variable">{{ order.town_or_city }}</p>
+                <p class="mb-0 prod-info-variable">{{ booking.town_or_city }}</p>
             </div>
         </div>
         {% if order.postcode %}
@@ -104,7 +104,7 @@
                     <p class="mb-0">Postal Code:</p>
                 </div>
                 <div class="col-12 col-md-8 text-md-right">
-                    <p class="mb-0 prod-info-variable">{{ order.postcode }}</p>
+                    <p class="mb-0 prod-info-variable">{{ booking.postcode }}</p>
                 </div>
             </div>
         {% endif %}
@@ -113,7 +113,7 @@
                 <p class="mb-0">Country:</p>
             </div>
             <div class="col-12 col-md-8 text-md-right">
-                <p class="mb-0 prod-info-variable">{{ order.country }}</p>
+                <p class="mb-0 prod-info-variable">{{ booking.country }}</p>
             </div>
         </div>
         <div class="row order-info">
@@ -121,15 +121,8 @@
                 <p class="mb-0">Phone Number:</p>
             </div>
             <div class="col-12 col-md-8 text-md-right">
-                <p class="mb-0 prod-info-variable">{{ order.phone_number }}</p>
+                <p class="mb-0 prod-info-variable">{{ booking.phone_number }}</p>
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block postloadjs %}
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
