@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block extra_css %}
     <style>
@@ -25,26 +26,28 @@
         <hr class="text-center col-8 offset-2">
     </div>
     <div class="container-fluid checkout-summary-container">
-        <div class="row">
-            <div class="col-5 offset-md-1 offset-lg-2 mb-1">
-                <a href="{% url 'product_rental' product.id %}">
-                    <img class="w-100 card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
-                </a>
-            </div>
-            <div class="col-7 col-md-6 col-lg-5">
-                <div class="product-info">
-                    <p class="my-0">{{ product.name }}</p>
-                    <p class="my-0">Size: <span class="prod-info-variable">{{ product.size }}</span></p>
-                    <p class="my-0">Price: <span class="prod-info-variable">€{{ product.price }} Per Day</span></p>
-                    <p class="my-0">Length: <span class="prod-info-variable">{{ rental_days }} Days</span></p>
-                    <p class="my-0">Start: <span class="prod-info-variable">{{ start_date }}</span></p>
-                    <p class="my-0">Total Price: <span class="prod-info-variable">€{{ total_cost }}</span></p>
+        {% for item in bag_items %}
+            <div class="row">
+                <div class="col-5 offset-md-1 offset-lg-2 mb-1">
+                    <a href="{% url 'product_rental' item.product.id %}">
+                        <img class="w-100 card-img-top" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                    </a>
                 </div>
-                <a href="{% url 'product_rental' product.id %}" class="btn rent--btn">
-                    <i class="bi bi-box-arrow-in-left"></i> Adjust Dates
-                </a>
+                <div class="col-7 col-md-6 col-lg-5">
+                    <div class="product-info">
+                        <p class="my-0">{{ item.product.name }}</p>
+                        <p class="my-0">Size: <span class="prod-info-variable">{{ item.product.size }}</span></p>
+                        <p class="my-0">Price: <span class="prod-info-variable">€{{ item.product.price }} Per Day</span></p>
+                        <p class="my-0">Length: <span class="prod-info-variable">{{ item.rental_days }} Days</span></p>
+                        <p class="my-0">Start: <span class="prod-info-variable">{{ item.start_date }}</span></p>
+                        <p class="my-0">Total Price: <span class="prod-info-variable">€{{ item.total_cost }}</span></p>
+                    </div>
+                    <a href="{% url 'product_rental' item.product.id %}" class="btn rent--btn">
+                        <i class="bi bi-box-arrow-in-left"></i> Adjust Dates
+                    </a>
+                </div>
             </div>
-        </div>
+        {% endfor %}
     </div>
     <div class="row sub-header">
         <h2 class="text-center col-12">Checkout</h2>
@@ -54,7 +57,7 @@
         <div class="row mt-2 checkout-form">
             <div class="col-12 col-lg-6 offset-lg-3">
                 <p class="text-center text-muted">Please fill out the form below to complete your order.</p>
-                <form action="{% url 'checkout' product.id %}" method="POST" id="payment-form">
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-2">
                         <legend class="fieldset-label small px-2 w-auto">Details</legend>
@@ -83,12 +86,10 @@
                         </button>
                         <p class="small text-danger my-0 col-12">
                             <i class="bi bi-exclamation-circle"></i>
-                            <span>Your card will be charged ${{ total_cost }}.<br>
+                            <span>Your card will be charged €{{ total_cost }}.<br>
                                 Payment information will be saved to your profile.</span>
                         </p>
                     </div>
-                    <input type="hidden" class="form-control" id="startDate" name="startDate" min="2021-08-11" max="2021-10-11" aria-describedby="startDate" value="{{ start_date }}">
-                    <input type="hidden" class="form-control" id="rentDays" name="rentDays" min="1" max="7" aria-describedby="rentDays" value="{{ rental_days }}">
                 </form>
             </div>
         </div>

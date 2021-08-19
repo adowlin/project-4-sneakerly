@@ -17,6 +17,7 @@ def bag_contents(request):
             'product_id': product_id,
             'rental_days': rental_days,
             'product': product,
+            'total_cost': total_cost,
         })
 
     if bag_items:
@@ -26,8 +27,6 @@ def bag_contents(request):
             'rental_days': rental_days,
         }
     else:
-        context = {
-            
-        }
+        context = {}
 
     return context

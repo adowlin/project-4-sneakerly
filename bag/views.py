@@ -20,9 +20,6 @@ def bag(request, product_id):
     stripe_total = round(total_cost * 100)
 
     bag[product_id] = rental_days
-    # bag[start_date] = start_date
-    # bag[total_cost] = total_cost
-    # bag[stripe_total] = stripe_total
 
     context = {
         'product': product,
@@ -33,5 +30,4 @@ def bag(request, product_id):
     }
 
     request.session['bag'] = bag
-    print(request.session['bag'])
     return render(request, 'bag/bag.html', context)

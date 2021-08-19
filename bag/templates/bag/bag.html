@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block extra_css %}
     <style>
@@ -39,12 +40,12 @@
                         <p class="my-0">Price: <span class="prod-info-variable">€{{ product.price }} Per Day</span></p>
                         <p class="my-0">Length: <span class="prod-info-variable">{{ rental_days }} Days</span></p>
                         <p class="my-0">Start: <span class="prod-info-variable">{{ start_date }}</span></p>
-                        <p class="my-0">Total Price: <span class="prod-info-variable">€{{ total_cost }}{{ origin }}</span></p>
+                        <p class="my-0">Total Price: <span class="prod-info-variable">€{{ total_cost }}</span></p>
                     </div>
                 </div>
             </div>
             <div class="row mt-2">
-                <a href="{% url 'checkout' product.id %}" class="btn green--btn col-4 offset-1">
+                <a href="{% url 'checkout' %}" class="btn green--btn col-4 offset-1">
                     <i class="bi bi-box-arrow-in-right"></i> Confirm
                 </a>
                 <a href="{% url 'product_rental' product.id %}" id="remove-button" class="btn rent--btn col-4 offset-2">

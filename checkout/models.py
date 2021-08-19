@@ -1,6 +1,8 @@
 import uuid
 
 from django.db import models
+from django.db.models import Sum
+from django.conf import settings
 
 from django_countries.fields import CountryField
 
@@ -41,7 +43,7 @@ class Booking(models.Model):
 
     def calculate_total(self):
         """
-        Update grand total for each rental day.
+        Update total cost for each rental day.
         """
         self.total_cost = self.product_price * self.rental_days
         self.save()
@@ -61,21 +63,24 @@ class Booking(models.Model):
 
 class BookingLineItem(models.Model):
     booking = models.ForeignKey(
-        Booking, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+        Booking, null=False, blank=False,
+        on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(
         Product, null=False, blank=False, on_delete=models.CASCADE)
-    product_size = models.CharField(max_length=4, null=True, blank=True)
-    rental_days = models.IntegerField(null=False, blank=False, default=0)
-    booking_total = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    rental_days = models.IntegerField(
+        null=False, blank=False, default=0)
+    lineitem_total = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False,
+        blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the booking total
         and update the order total.
         """
-        self.booking_total = self.product.price * self.rental_days
+        self.lineitem_total = self.product.price * self.rental_days
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'SKU {self.product.sku} on booking {self.booking.booking_number}'
+        return f'SKU {self.product.sku} on booking \
+            {self.booking.booking_number}'
