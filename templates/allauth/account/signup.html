@@ -6,13 +6,16 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block page_header %}
-  <h1 class="text-center auth-head">{% trans "Create an Account" %}</h1>
+  <div class="auth-image-shape" id="auth-image"><div class="auth-overlay"></div></div>
+  <div class="row" id="auth-image-head">
+      <h1 class="col-12 text-center">Create an Account</h1>
+  </div>
 {% endblock %}
 
 {% block content %}
 
   <div class="row main-content-container">
-    <p class="text-center col-12">{% blocktrans %}Already have an account?<br>Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+    <p class="text-center col-12 mt-5">{% blocktrans %}Already have an account?<br>Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
     <div class="col-12">
       <div class="card form-card">
         <div class="card-body row">
