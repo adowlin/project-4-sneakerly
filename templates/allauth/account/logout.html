@@ -5,20 +5,22 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block page_header %}
-  <h1 class="text-center auth-head">{% trans "Sign Out" %}</h1>
+<div class="auth-image-shape" id="auth-image"><div class="auth-overlay"></div></div>
+<div class="row" id="auth-image-head">
+    <h1 class="col-12 text-center">Sign Out</h1>
+</div>
 {% endblock %}
 
 {% block content %}
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
-
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
-</form>
-
-
+<div class="row main-content-container mt-5">
+  <p class="text-center col-12 mt-5" id="logout-subheader">{% trans 'Are you sure you want to sign out?' %}</p>
+  <form method="post" action="{% url 'account_logout' %}">
+    {% csrf_token %}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+    {% endif %}
+    <button class="btn cta--btn text-center col-10 col-sm-6 offset-1 offset-sm-3 primaryAction mt-3" type="submit"><i class="bi bi-box-arrow-left"></i> {% trans 'Sign Out' %}</button>
+  </form>
+</div>
 {% endblock %}
