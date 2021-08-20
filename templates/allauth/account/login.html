@@ -19,7 +19,7 @@
   <p class="text-center col-12 mt-5" id="login-subheader">{% blocktrans %}If you have not created an account yet,<br>then please
     <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
   </p>
-  <div class="col-12">
+  <div class="col-12 col-md-6 offset-md-3">
     <div class="card form-card" id="login-form-card">
       <div class="card-body row">
         <form class="login" id="login_form" method="POST" action="{% url 'account_login' %}">

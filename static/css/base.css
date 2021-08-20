@@ -370,7 +370,8 @@ footer {
     }
 
     .page-header > #prod-image-head > h1,
-    .page-header > #checkout-image-head > h1 {
+    .page-header > #checkout-image-head > h1,
+    .page-header > #auth-image-head > h1 {
         font-size: 10vw;
     }
     
@@ -411,6 +412,11 @@ footer {
     .product-image > .img-fluid {
         height: 30rem;
     }
+
+    .page-header > #auth-image-head > h1 {
+        font-size: 7vw;
+        margin-top: -20vh;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -425,5 +431,14 @@ footer {
 
     .product-info {
         font-size: 1.5rem;
+    }
+
+    .auth-image-shape {
+        height: 45vh;
+    }
+
+    .page-header > #auth-image-head > h1 {
+        font-size: 5vw;
+        margin-top: -20vh;
     }
 }
