@@ -84,6 +84,7 @@ def checkout(request):
         'booking_form': booking_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+        'rental_days': rental_days,
     }
 
     return render(request, template, context)

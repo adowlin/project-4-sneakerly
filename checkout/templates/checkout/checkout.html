@@ -72,6 +72,8 @@
                         {{ booking_form.street_address1 | as_crispy_field }}
                         {{ booking_form.street_address2 | as_crispy_field }}
                         {{ booking_form.county | as_crispy_field }}
+                        <label for="startDate" class="form-label">Choose Rental Start Date:</label>
+                        <input type="date" class="form-control" id="startDate" name="startDate" min="2021-08-11" max="2021-10-11" aria-describedby="startDate">
                     </fieldset>
                     <fieldset class="rounded px-3 mb-2">
                         <legend class="fieldset-label small px-2 w-auto">Payment</legend>

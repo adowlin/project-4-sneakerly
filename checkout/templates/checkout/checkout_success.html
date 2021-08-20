@@ -2,13 +2,15 @@
 {% load static %}
 
 {% block extra_css %}
-    <style>
-        #checkout-prod-image {
-            background: url('{{ product.image.url }}') no-repeat fixed center;
-            background-size: cover;
-            z-index: -999;
-        }
-    </style>
+    {% for item in booking.lineitems.all %}
+        <style>
+            #checkout-prod-image {
+                background: url('{{ item.product.image.url }}') no-repeat fixed center;
+                background-size: cover;
+                z-index: -999;
+            }
+        </style>
+    {% endfor %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
@@ -23,106 +25,231 @@
     <div class="row sub-header">
         <h2 class="text-center col-12">Booking Confirmed!</h2>
         <hr class="text-center col-8 offset-2">
-        <p class="text-black">Your booking information is below. A confirmation email will be sent to {{ booking.email }}</p>
     </div>
     <div class="container-fluid order-confirmation-container">
-        {% for item in booking.lineitems.all %}
-            <div class="row">
-                <div class="col-5 offset-md-1 offset-lg-2 mb-1">
-                    <img class="w-100 card-img-top" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+        <div class="row booking-info">
+            <div class="col-12 col-md-8 offset-md-2">
+                <p class="text-center text-muted">
+                    A confirmation email will be sent to <span class="booking-info-variable">{{ booking.email }}</span><br>
+                    Your booking number is:<br>
+                    <span class="booking-info-variable">{{ booking.booking_number }}</span>
+                </p>
+            </div>
+        </div>
+        <div class="row booking-info">
+            {% for item in booking.lineitems.all %}
+                <div class="col-12 col-md-5 offset-md-2">
+                    <div class="row booking-info">
+                        <div class="col">
+                            <p class="my-0"><u>{{ item.product.name }}</u></p>
+                        </div>
+                    </div>
+                    <div class="row booking-info">
+                        <div class="col-4">
+                            <p class="my-0">Size:</p>  
+                        </div>
+                        <div class="col-8 text-md-right">
+                            <p class="mb-0 booking-info-variable">{{ item.product.size }}</p>
+                        </div>
+                    </div>
+                    <div class="row booking-info">
+                        <div class="col-4">
+                            <p class="my-0">Price:</p>  
+                        </div>
+                        <div class="col-8 text-md-right">
+                            <p class="mb-0 booking-info-variable">{{ item.product.price }}</p>
+                        </div>
+                    </div>
+                    <div class="row booking-info">
+                        <div class="col-4">
+                            <p class="my-0">Length:</p>  
+                        </div>
+                        <div class="col-8 text-md-right">
+                            <p class="mb-0 booking-info-variable">{{ item.rental_days }} Days</p>
+                        </div>
+                    </div>
+                    <div class="row booking-info">
+                        <div class="col-4">
+                            <p class="my-0">Total Price:</p>  
+                        </div>
+                        <div class="col-8 text-md-right">
+                            <p class="mb-0 booking-info-variable">{{ item.lineitem_total }}</p>
+                        </div>
+                    </div>
+                    <div class="row booking-info">
+                        <div class="col-4">
+                            <p class="my-0">Order Date:</p>  
+                        </div>
+                        <div class="col-8 text-md-right">
+                            <p class="mb-0 booking-info-variable">{{ booking.order_date }}</p>
+                        </div>
+                    </div>
+                    <div class="row booking-info">
+                        <div class="col-4">
+                            <p class="my-0">Start Date:</p>  
+                        </div>
+                        <div class="col-8 text-md-right">
+                            <p class="mb-0 booking-info-variable">{{ booking.start_date }}</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-7 col-md-6 col-lg-5">
-                    <div class="product-info">
-                        <p class="my-0">{{ item.product.name }}</p>
-                        <p class="my-0">Size: <span class="prod-info-variable">{{ item.product.size }}</span></p>
-                        <p class="my-0">Price: <span class="prod-info-variable">€{{ item.product.price }} Per Day</span></p>
-                        <p class="my-0">Length: <span class="prod-info-variable">{{ item.rental_days }} Days</span></p>
-                        <p class="my-0">Start: <span class="prod-info-variable">{{ item.start_date }}</span></p>
-                        <p class="my-0">Total Price: <span class="prod-info-variable">€{{ booking.total_cost }}</span></p>
+            {% endfor %}
+            <div class="col-12 col-md-5">
+                <div class="row booking-info mt-2">
+                    <div class="col">
+                        <p class="my-0"><u>Delivering To:</u></p>
+                    </div>
+                </div>
+                <div class="row booking-info">
+                    <div class="col-4">
+                        <p class="mb-0">Full Name:</p>
+                    </div>
+                    <div class="col-8 text-md-right">
+                        <p class="mb-0 booking-info-variable">{{ booking.full_name }}</p>
+                    </div>
+                </div>
+                <div class="row booking-info">
+                    <div class="col-4">
+                        <p class="mb-0">Address 1:</p>
+                    </div>
+                    <div class="col-8 text-md-right">
+                        <p class="mb-0 booking-info-variable">{{ booking.street_address1 }}</p>
+                    </div>
+                </div>
+                {% if booking.street_address2 %}
+                    <div class="row booking-info">
+                        <div class="col-4">
+                            <p class="mb-0">Address 2:</p>
+                        </div>
+                        <div class="col-8 text-md-right">
+                            <p class="mb-0 booking-info-variable">{{ booking.street_address2 }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if booking.county %}
+                    <div class="row booking-info">
+                        <div class="col-4">
+                            <p class="mb-0">County:</p>
+                        </div>
+                        <div class="col-8 text-md-right">
+                            <p class="mb-0 booking-info-variable">{{ booking.county }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="row booking-info">
+                    <div class="col-4">
+                        <p class="mb-0">Town:</p>
+                    </div>
+                    <div class="col-8 text-md-right">
+                        <p class="mb-0 booking-info-variable">{{ booking.town_or_city }}</p>
+                    </div>
+                </div>
+                {% if order.postcode %}
+                    <div class="row booking-info">
+                        <div class="col-4">
+                            <p class="mb-0">Postal Code:</p>
+                        </div>
+                        <div class="col-8 text-md-right">
+                            <p class="mb-0 booking-info-variable">{{ booking.postcode }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="row booking-info">
+                    <div class="col-4">
+                        <p class="mb-0">Phone:</p>
+                    </div>
+                    <div class="col-8 text-md-right">
+                        <p class="mb-0 booking-info-variable">{{ booking.phone_number }}</p>
                     </div>
                 </div>
             </div>
-        {% endfor %}
-        <div class="row order-info">
-            <div class="col-12 col-md-8 offset-md-2">
-                <p class="my-0">Booking Number: <span class="prod-info-variable">{{ booking.booking_number }}</span></p>
-                <p class="my-0">Order Date: <span class="prod-info-variable">{{ booking.order_date }}</span></p>
+        </div>
+        <div class="row mt-2">
+            <div class="col-10 offset-1">
+                <div class="row">
+                    <a href="{% url 'products' %}" class="text-center col-12"><button class="btn cta--btn"><i class="bi bi-grid-3x2-gap"></i> All Sneakers</button></a>
+                </div>
             </div>
         </div>
-        <div class="row order-info text-center">
+        <!-- <div class="row booking-info">
+            <div class="col-12 col-md-8 offset-md-2">
+                <p class="my-0">Order Date: <span class="booking-info-variable">{{ booking.order_date }}</span></p>
+                <p class="my-0">Start Date: <span class="booking-info-variable">{{ booking.start_date }}</span></p>
+            </div>
+        </div>
+        <div class="row booking-info mt-2">
             <div class="col">
                 <small class="text-muted">Delivering To:</small>
             </div>
         </div>
-        <div class="row order-info">
+        <div class="row booking-info">
             <div class="col-12 col-md-4">
                 <p class="mb-0">Full Name:</p>
             </div>
             <div class="col-12 col-md-8 text-md-right">
-                <p class="mb-0 prod-info-variable">{{ booking.full_name }}</p>
+                <p class="mb-0 booking-info-variable">{{ booking.full_name }}</p>
             </div>
         </div>
-        <div class="row order-info">
+        <div class="row booking-info">
             <div class="col-12 col-md-4">
                 <p class="mb-0">Address 1:</p>
             </div>
             <div class="col-12 col-md-8 text-md-right">
-                <p class="mb-0 prod-info-variable">{{ booking.street_address1 }}</p>
+                <p class="mb-0 booking-info-variable">{{ booking.street_address1 }}</p>
             </div>
         </div>
-        {% if order.street_address2 %}
-            <div class="row order-info">
+        {% if booking.street_address2 %}
+            <div class="row booking-info">
                 <div class="col-12 col-md-4">
                     <p class="mb-0">Address 2:</p>
                 </div>
                 <div class="col-12 col-md-8 text-md-right">
-                    <p class="mb-0 prod-info-variable">{{ booking.street_address2 }}</p>
+                    <p class="mb-0 booking-info-variable">{{ booking.street_address2 }}</p>
                 </div>
             </div>
         {% endif %}
-        {% if order.county %}
-            <div class="row order-info">
+        {% if booking.county %}
+            <div class="row booking-info">
                 <div class="col-12 col-md-4">
                     <p class="mb-0">County:</p>
                 </div>
                 <div class="col-12 col-md-8 text-md-right">
-                    <p class="mb-0 prod-info-variable">{{ booking.county }}</p>
+                    <p class="mb-0 booking-info-variable">{{ booking.county }}</p>
                 </div>
             </div>
         {% endif %}
-        <div class="row order-info">
+        <div class="row booking-info">
             <div class="col-12 col-md-4">
                 <p class="mb-0">Town or City:</p>
             </div>
             <div class="col-12 col-md-8 text-md-right">
-                <p class="mb-0 prod-info-variable">{{ booking.town_or_city }}</p>
+                <p class="mb-0 booking-info-variable">{{ booking.town_or_city }}</p>
             </div>
         </div>
         {% if order.postcode %}
-            <div class="row order-info">
+            <div class="row booking-info">
                 <div class="col-12 col-md-4">
                     <p class="mb-0">Postal Code:</p>
                 </div>
                 <div class="col-12 col-md-8 text-md-right">
-                    <p class="mb-0 prod-info-variable">{{ booking.postcode }}</p>
+                    <p class="mb-0 booking-info-variable">{{ booking.postcode }}</p>
                 </div>
             </div>
         {% endif %}
-        <div class="row order-info">
-            <div class="col-12 col-md-4">
-                <p class="mb-0">Country:</p>
-            </div>
-            <div class="col-12 col-md-8 text-md-right">
-                <p class="mb-0 prod-info-variable">{{ booking.country }}</p>
-            </div>
-        </div>
-        <div class="row order-info">
+        <div class="row booking-info">
             <div class="col-12 col-md-4">
                 <p class="mb-0">Phone Number:</p>
             </div>
             <div class="col-12 col-md-8 text-md-right">
-                <p class="mb-0 prod-info-variable">{{ booking.phone_number }}</p>
+                <p class="mb-0 booking-info-variable">{{ booking.phone_number }}</p>
             </div>
-        </div>
+        </div> -->
+        <!-- <div class="row mt-2">
+            <div class="col-10 offset-1">
+                <div class="row">
+                    <a href="{% url 'products' %}" class="text-center col-12"><button class="btn cta--btn"><i class="bi bi-grid-3x2-gap"></i> All Sneakers</button></a>
+                </div>
+            </div>
+        </div> -->
     </div>
 {% endblock %}

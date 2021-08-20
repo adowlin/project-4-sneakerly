@@ -28,7 +28,7 @@ body {
 /* ---------------------------------------- Buttons */
 
 .cta--btn {
-    background-color: rgb(244, 91, 105);
+    background-color: rgb(242, 64, 79);
     color: rgb(235, 235, 235);
     font-size: 1.5rem;
     text-decoration: none;
@@ -291,11 +291,13 @@ body {
     text-shadow: 2px 2px rgb(82, 72, 156);
 }
 
-.product-info {
+.product-info,
+.booking-info {
     color: rgb(82, 72, 156);
 }
 
-.product-info .prod-info-variable {
+.product-info .prod-info-variable,
+.booking-info .booking-info-variable {
     color: rgb(49, 135, 135);
 }
 
