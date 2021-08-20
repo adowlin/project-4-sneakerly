@@ -234,9 +234,22 @@ body {
 
 /* ---------------------------------------- Log In */
 
+#login-subheader {
+    color: rgb(82, 72, 156);
+}
+
+#login-form-card {
+    margin: 1rem;
+}
+
 #login_form input {
     border: 1px solid rgb(82, 72, 156);
     border-radius: 5px;
+}
+
+#login_form #id_login,
+#login_form #id_password {
+    width: 100%;
 }
 
 /* ---------------------------------------- All Products */

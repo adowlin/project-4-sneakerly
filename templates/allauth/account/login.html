@@ -7,17 +7,20 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block page_header %}
-  <h1 class="text-center auth-head">{% trans "Sign In" %}</h1>
+  <div class="auth-image-shape" id="auth-image"><div class="auth-overlay"></div></div>
+  <div class="row" id="auth-image-head">
+      <h1 class="col-12 text-center">Sign In</h1>
+  </div>
 {% endblock %}
 
 {% block content %}
 
 <div class="row main-content-container"></div>
-  <p class="text-center col-12">{% blocktrans %}If you have not created an account yet,<br>then please
+  <p class="text-center col-12 mt-5" id="login-subheader">{% blocktrans %}If you have not created an account yet,<br>then please
     <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
   </p>
   <div class="col-12">
-    <div class="card form-card">
+    <div class="card form-card" id="login-form-card">
       <div class="card-body row">
         <form class="login" id="login_form" method="POST" action="{% url 'account_login' %}">
           {% csrf_token %}
@@ -26,21 +29,10 @@
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
           <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-          <button class="btn cta--btn text-center col-10 offset-1 primaryAction" type="submit"><i class="bi bi-person"></i> {% trans "Sign In" %}</button>
+          <button class="btn cta--btn text-center col-10 offset-1 primaryAction mt-3" type="submit"><i class="bi bi-person"></i> {% trans "Sign In" %} &raquo;</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-
-<!-- <form class="login" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-</form> -->
-
 {% endblock %}
