@@ -36,3 +36,24 @@
     border: 1px solid rgb(82, 72, 156);
     border-radius: .5rem;
 }
+
+#loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(166, 221, 221, .85);
+    z-index: 99999;
+}
+
+.loading-spinner {
+    display: flex;
+    font-size: 10rem;
+    color: rgb(82, 72, 156);
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
+}
