@@ -1,0 +1,43 @@
+#profile-image {
+    background: url('/media/profile-img.jpg') no-repeat fixed center;
+    background-size: cover;
+    z-index: -999;
+}
+
+.page-header > #profile-image-head > h1 {
+    color: rgb(166, 221, 221);
+    font-size: 15vw;
+    margin-top: -25vh;
+    text-shadow: 2px 2px rgb(82, 72, 156);
+}
+
+.profile-info {
+    color: rgb(82, 72, 156);
+}
+
+.profile-info > hr {
+    color: rgb(244, 91, 105);
+    border: 0.1rem solid;
+    border-radius: 12px;
+}
+
+.profile-form-input {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+}
+
+.profile-form-input:focus,
+.profile-form-input:active {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.profile-form-input::placeholder {
+    color: #aab7c4;
+}

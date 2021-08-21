@@ -13,7 +13,28 @@
 {% endblock %}
 
 {% block content %}
-<div class="row main-content-container mt-5">
-    {{ profile }}
+<div class="row main-content-container profile-info mt-5">
+    <div class="col-12 col-md-5 offset-md-1">
+        <div class="row profile-info">
+            <h2 class="text-center col-12">Rental History</h2>
+            <hr class="text-center col-8 offset-2">
+        </div>
+        <div class="row profile-info">{{ bookings }}</div>
+    </div>
+    <div class="col-12 col-md-5">
+        <div class="row profile-info">
+            <h2 class="text-center col-12">Delivery Info</h2>
+            <hr class="text-center col-8 offset-2">
+        </div>
+        <div class="row profile-info">
+            <div class="col-12">
+                <form action="{% url 'profile' %}" method="POST" class="mt-3" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-lg green--btn float-end"><i class="bi bi-arrow-down-up"></i> Update Info</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
