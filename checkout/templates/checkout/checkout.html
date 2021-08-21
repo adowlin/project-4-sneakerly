@@ -3,13 +3,15 @@
 {% load bag_tools %}
 
 {% block extra_css %}
-    <style>
-        #checkout-prod-image {
-            background: url('{{ product.image.url }}') no-repeat fixed center;
-            background-size: cover;
-            z-index: -999;
-        }
-    </style>
+    {% for item in bag_items %}
+        <style>
+            #checkout-prod-image {
+                background: url('{{ item.product.image.url }}') no-repeat fixed center;
+                background-size: cover;
+                z-index: -999;
+            }
+        </style>
+    {% endfor %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
@@ -66,12 +68,12 @@
                     </fieldset>
                     <fieldset class="rounded px-3 mb-2">
                         <legend class="fieldset-label small px-2 w-auto">Delivery</legend>
-                        {{ booking_form.phone_number | as_crispy_field }}
-                        {{ booking_form.postcode | as_crispy_field }}
-                        {{ booking_form.town_or_city | as_crispy_field }}
                         {{ booking_form.street_address1 | as_crispy_field }}
                         {{ booking_form.street_address2 | as_crispy_field }}
+                        {{ booking_form.town_or_city | as_crispy_field }}
                         {{ booking_form.county | as_crispy_field }}
+                        {{ booking_form.postcode | as_crispy_field }}
+                        {{ booking_form.phone_number | as_crispy_field }}
                         <label for="startDate" class="form-label">Choose Rental Start Date:</label>
                         <input type="date" class="form-control" id="startDate" name="startDate" min="2021-08-11" max="2021-10-11" aria-describedby="startDate">
                     </fieldset>
