@@ -2,15 +2,6 @@
 {% load static %}
 
 {% block extra_css %}
-    {% for item in bag_items %}
-        <style>
-            #checkout-prod-image {
-                background: url('{{ item.product.image.url }}') no-repeat fixed center;
-                background-size: cover;
-                z-index: -999;
-            }
-        </style>
-    {% endfor %}
     <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
@@ -22,5 +13,7 @@
 {% endblock %}
 
 {% block content %}
-    
+<div class="row main-content-container mt-5">
+    {{ profile }}
+</div>
 {% endblock %}
