@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="head-image-shape" id="contact-image"><div class="overlay"></div></div>
+    <div class="row" id="contact-image-head">
+        <h1 class="col-12 text-center">Contact</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="row main-content-container mt-5" id="profile-info-container">
+    <div class="col-12 col-md-5">
+        <p class="text-center text-muted">Please fill out the form below to contact us with any questions.</p>
+        <div class="row profile-info">
+            <div class="col-12">
+                <form action="" method="POST" class="mt-3" id="contact-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-lg green--btn"><i class="bi bi-envelope"></i> Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
