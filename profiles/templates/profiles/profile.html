@@ -13,13 +13,38 @@
 {% endblock %}
 
 {% block content %}
-<div class="row main-content-container profile-info mt-5">
+<div class="row main-content-container mt-5" id="profile-info-container">
     <div class="col-12 col-md-5 offset-md-1">
         <div class="row profile-info">
             <h2 class="text-center col-12">Rental History</h2>
             <hr class="text-center col-8 offset-2">
         </div>
-        <div class="row profile-info">{{ bookings }}</div>
+        <div class="row profile-info">
+            <div class="booking-history table-responsive col-12">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <th>Booking Number</th>
+                        <th>Date</th>
+                        <th>Item</th>
+                        <th>Rental Total</th>
+                    </thead>
+                    <tbody>
+                        {% for booking in bookings %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'booking_history' booking.booking_number %}" title="{{ booking.booking_number }}">
+                                        {{ booking.booking_number|truncatechars:6 }}
+                                    </a>
+                                </td>
+                                <td>{{ booking.date }}</td>
+                                <td>{{ item.product.name }} x{{ item.rental_days }} Days</td>
+                                <td>€{{ item.lineitem_total }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
     <div class="col-12 col-md-5">
         <div class="row profile-info">

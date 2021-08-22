@@ -1,14 +1,33 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
-from products.models import Product
 from .models import Booking, BookingLineItem
 from .forms import BookingForm
+from products.models import Product
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 from bag.contexts import bag_contents
 
 import stripe
 import json
+
+
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'bag': json.dumps(request.session.get('bag', {})),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Sorry, your payment could not be \
+            processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):
@@ -73,7 +92,23 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        booking_form = BookingForm()
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                booking_form = BookingForm(initial={
+                    'full_name': profile.default_full_name,
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'postcode': profile.default_postcode,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'county': profile.default_county,
+                })
+            except UserProfile.DoesNotExist:
+                booking_form = BookingForm()
+        else:
+            booking_form = BookingForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
@@ -93,10 +128,29 @@ def checkout(request):
 def checkout_success(request, booking_number):
     """ Handle successful checkouts """
     booking = get_object_or_404(Booking, booking_number=booking_number)
-    # product = get_object_or_404(Product, pk=product_id)
-    # messages.success(request, f'Order successfully processed! \
-    #     Your booking number is {booking_number}. A confirmation \
-    #     email will be sent to {booking.email}.')
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        booking.user_profile = profile
+        booking.save()
+
+        profile_data = {
+            'default_full_name': booking.full_name,
+            'default_phone_number': booking.phone_number,
+            'default_postcode': booking.postcode,
+            'default_town_or_city': booking.town_or_city,
+            'default_street_address1': booking.street_address1,
+            'default_street_address2': booking.street_address2,
+            'default_county': booking.county,
+        }
+        user_profile_form = UserProfileForm(profile_data, instance=profile)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
+
+    messages.success(request, f'Booking successfully processed! \
+        Your booking number is {booking_number}. A confirmation \
+        email will be sent to {booking.email}.')
 
     if 'bag' in request.session:
         del request.session['bag']

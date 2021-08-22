@@ -4,10 +4,10 @@
     z-index: -999;
 }
 
-.page-header > #profile-image-head > h1 {
+#profile-image-head > h1 {
     color: rgb(166, 221, 221);
     font-size: 15vw;
-    margin-top: -25vh;
+    margin-top: -30vh;
     text-shadow: 2px 2px rgb(82, 72, 156);
 }
 
@@ -19,6 +19,11 @@
     color: rgb(244, 91, 105);
     border: 0.1rem solid;
     border-radius: 12px;
+}
+
+.booking-history {
+    max-height: 416px; /* Height of profile form */
+    overflow-y: auto;
 }
 
 .profile-form-input {
@@ -40,4 +45,16 @@
 
 .profile-form-input::placeholder {
     color: #aab7c4;
+}
+
+@media only screen and (min-width: 768px) {
+    #profile-info-container {
+        padding-top: 3rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #profile-image-head > h1 {
+        font-size: 7vw;
+    }
 }
