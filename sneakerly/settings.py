@@ -175,6 +175,16 @@ STRIPE_CURRENCY = 'eur'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 
+# Twilio SendGrid
+SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY', '')
+CONTACT_EMAIL = 'alisonfullstackdev@gmail.com'
+ADMIN_EMAIL = ['alisonfullstackdev@gmail.com', ]
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = os.getenv('SENDGRID_API_KEY')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

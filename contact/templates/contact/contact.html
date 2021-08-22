@@ -18,10 +18,10 @@
         <p class="text-center text-muted">Please fill out the form below to contact us with any questions.</p>
         <div class="row">
             <div class="col-12">
-                <form action="" method="POST" class="mt-3" id="contact-form">
+                <form action="{% url 'contact' %}" method="POST" class="mt-3" id="contact-form">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button class="btn btn-lg green--btn"><i class="bi bi-envelope"></i> Submit</button>
+                    <button class="btn btn-lg green--btn" type="submit"><i class="bi bi-envelope"></i> Submit</button>
                 </form>
             </div>
         </div>
