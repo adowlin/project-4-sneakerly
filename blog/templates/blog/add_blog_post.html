@@ -8,18 +8,22 @@
 {% block page_header %}
     <div class="head-image-shape" id="blog-image"><div class="overlay"></div></div>
     <div class="row" id="blog-image-head">
-        <h1 class="col-12 text-center">Blog</h1>
+        <h1 class="col-12 text-center">Add A Blog Post</h1>
     </div>
 {% endblock %}
 
 {% block content %}
     <div class="row sub-header">
-        <h2 class="text-center col-12">Customer Photos</h2>
+        <h2 class="text-center col-12">Add On-Feet Photo</h2>
         <hr class="text-center col-8 offset-2">
     </div>
     <div class="row main-content-container mt-2">
         <div class="col-12 col-md-6 offset-md-3">
-            <a href="{% url 'add_blog_post' %}" class="text-center col-12"><button class="btn cta--btn"><i class="bi bi-plus-lg"></i> Add Post</button></a>
+            <form action="{% url 'blog' %}" method="POST" class="mt-3" id="blog-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-lg green--btn" type="submit"><i class="bi bi-envelope"></i> Submit</button>
+            </form>
         </div>
     </div>
 {% endblock %}
