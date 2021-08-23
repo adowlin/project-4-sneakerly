@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import messages
 
 from .forms import BlogPostForm
 
@@ -11,7 +12,17 @@ def blog(request):
 
 def add_blog_post(request):
     """ View to add a blog post """
-    form = BlogPostForm()
+    if request.method == "POST":
+        form = BlogPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your photo has been added!')
+            render(request, 'blog/blog.html')
+        else:
+            messages.error(request, 'Failed to add photo. Please make sure the form is valid.')
+    else:
+        form = BlogPostForm()
+
     context = {
         'form': form
     }
