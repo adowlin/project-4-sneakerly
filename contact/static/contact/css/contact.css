@@ -1,3 +1,5 @@
+/* ---------------------------------------- Contact */
+
 #contact-image {
     background: url('/media/contact-img2.jpg') no-repeat fixed center;
     background-size: cover;
@@ -24,6 +26,30 @@
     border-radius: 5px;
     width: 100%;
 }
+
+/* ---------------------------------------- FAQs */
+
+#faq-accordian > .accordion-item {
+    background: rgba(235, 235, 235);
+    color: rgb(82, 72, 156);
+}
+
+#faq-accordian > .accordion-item .accordion-button {
+    background: rgb(82, 72, 156);
+    color: rgb(235, 235, 235);
+    font-size: 1.1rem;
+}
+
+#faq-accordian > .accordion-item .accordion-button:focus {
+    border: none;
+    box-shadow: none;
+}
+
+.accordion-flush > .accordion-item > .accordion-header > .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ebebeb'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+/* ---------------------------------------- Contact & FAQs Media Queries */
 
 @media only screen and (min-width: 576px) {
     .page-header > #contact-image-head > h1 {
