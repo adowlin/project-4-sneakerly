@@ -11,11 +11,6 @@
                         <a class="nav-link" href="{% url 'products' %}">All Sneakers</a>
                     </li>
                     {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Product Management</a>
-                            </li>
-                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'profile' %}">Profile</a>
                         </li>
@@ -30,6 +25,9 @@
                             <a class="nav-link" href="{% url 'account_login' %}">Log In</a>
                         </li>
                     {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'faqs' %}">FAQs</a>
                     </li>
