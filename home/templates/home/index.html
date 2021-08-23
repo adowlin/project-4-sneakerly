@@ -19,7 +19,11 @@
             4. Confirm your booking & pay<br>
             5. We ship the sneakers to you!<br>
         </p>
-        <a href="{% url 'account_signup' %}" class="text-center col-12"><button class="btn cta--btn"><i class="bi bi-person-plus"></i> Create An Account</button></a>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'profile' %}" class="text-center col-12"><button class="btn cta--btn"><i class="bi bi-person-square"></i> Go To Profile</button></a>
+        {% else %}
+            <a href="{% url 'account_signup' %}" class="text-center col-12"><button class="btn cta--btn"><i class="bi bi-person-plus"></i> Create An Account</button></a>
+        {% endif %}
         <div class="col-12 text-center smile-icon"><i class="bi bi-emoji-smile"></i></div>
     </div>
     <div class="row container-fluid sub-content-container">
@@ -42,7 +46,11 @@
         </div>
         <div class="col-10 offset-1">
             <div class="row">
-                <a href="{% url 'account_signup' %}" class="text-center col-12"><button class="btn cta--btn"><i class="bi bi-person-plus"></i> Create An Account</button></a>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'profile' %}" class="text-center col-12"><button class="btn cta--btn"><i class="bi bi-person-square"></i> Go To Profile</button></a>
+                {% else %}
+                    <a href="{% url 'account_signup' %}" class="text-center col-12"><button class="btn cta--btn"><i class="bi bi-person-plus"></i> Create An Account</button></a>
+                {% endif %}
             </div>
         </div>
     </div>

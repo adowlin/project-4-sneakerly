@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="head-image-shape" id="blog-image"><div class="overlay"></div></div>
+    <div class="row" id="blog-image-head">
+        <h1 class="col-12 text-center">Blog</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row sub-header">
+        <h2 class="text-center col-12">Customer Photos</h2>
+        <hr class="text-center col-8 offset-2">
+    </div>
+    <div class="row main-content-container mt-5">
+        <div class="col-12 col-md-6 offset-md-3"></div>
+    </div>
+{% endblock %}
