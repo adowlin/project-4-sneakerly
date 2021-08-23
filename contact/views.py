@@ -26,3 +26,8 @@ def contact(request):
         'form': form
     }
     return render(request, 'contact/contact.html', context)
+
+
+def faqs(request):
+    context = {}
+    return render(request, 'contact/faqs.html', context)
