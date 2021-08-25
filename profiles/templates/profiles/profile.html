@@ -21,19 +21,19 @@
         </div>
         <div class="row profile-info">
             <div class="booking-history table-responsive col-12">
-                <table class="table table-sm table-borderless">
+                <table class="table table-sm table-borderless table-striped">
                     <thead>
-                        <th>Booking Number</th>
+                        <th>Reference</th>
                         <th>Date</th>
                         <th>Item</th>
-                        <th>Rental Total</th>
+                        <th>Total</th>
                     </thead>
                     <tbody>
                         {% for booking in bookings %}
                             <tr>
                                 <td>
                                     <a href="{% url 'booking_history' booking.booking_number %}" title="{{ booking.booking_number }}">
-                                        {{ booking.booking_number|truncatechars:6 }}
+                                        {{ booking.booking_number|truncatechars:10 }}
                                     </a>
                                 </td>
                                 <td>{{ booking.order_date }}</td>
