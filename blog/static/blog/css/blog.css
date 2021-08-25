@@ -18,6 +18,23 @@
     object-fit: cover;
 }
 
+/* ---------------------------------------- Add Blog Post */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
 /* ---------------------------------------- Blog Media Queries */
 
 @media only screen and (min-width: 576px) {

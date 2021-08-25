@@ -1,4 +1,6 @@
 from django import forms
+
+from .widgets import CustomClearableFileInput
 from .models import BlogPost
 
 
@@ -6,7 +8,10 @@ class BlogPostForm(forms.ModelForm):
     class Meta:
         model = BlogPost
         fields = (
-            'product', 'title', 'body_text', 'image_url', 'image',)
+            'product', 'title', 'image_url', 'image',)
+
+    image = forms.ImageField(
+        label='Image', required=True, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
