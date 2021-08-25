@@ -18,6 +18,25 @@
         <hr class="text-center col-8 offset-2">
     </div>
     <div class="row main-content-container mt-2">
+        <div class="col-12">
+            <div class="row">
+                {% for blog_post in blog_posts %}
+                    <div class="col-sm-12 col-md-8 offset-md-2 mb-3 product-cols">
+                        <div class="card h-200 border-0">
+                            <a href="{% url 'product_rental' blog_post.product.id %}">
+                                <img class="card-img-top img-fluid" src="{{ blog_post.image_url }}" alt="{{ blog_post.product.name }}">
+                            </a>
+                            <div class="card-body pb-0">
+                                <p class="mb-0">{{ blog_post.title }}</p>
+                                <p class="mb-0 text-end">Added By: {{ blog_post.user_profile }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12 col-md-6 offset-md-3">
             <a href="{% url 'add_blog_post' %}" class="text-center col-12"><button class="btn cta--btn"><i class="bi bi-plus-lg"></i> Add Post</button></a>
         </div>
