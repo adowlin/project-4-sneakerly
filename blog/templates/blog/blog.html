@@ -30,7 +30,7 @@
                                 <p class="mb-0">{{ blog_post.title }}</p>
                                 {% if request.user.is_authenticated %}
                                     <a href="{% url 'edit_blog_post' blog_post.id %}"><i class="bi bi-pencil-square"></i></a> |
-                                    <a href="" class="text-danger"><i class="bi bi-trash"></i></a>
+                                    <a href="{% url 'delete_blog_post' blog_post.id %}" class="text-danger"><i class="bi bi-trash"></i></a>
                                 {% endif %}
                                 <p class="mb-0 text-end">Added By: {{ blog_post.user_profile }}</p>
                             </div>
