@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 
 from .models import BlogPost
@@ -20,7 +20,7 @@ def add_blog_post(request):
         form = BlogPostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your photo has been added!')
+            messages.success(request, 'Your post has been added!')
             render(request, 'blog/blog.html')
         else:
             messages.error(
@@ -33,3 +33,29 @@ def add_blog_post(request):
         'form': form
     }
     return render(request, 'blog/add_blog_post.html', context)
+
+
+def edit_blog_post(request, blog_post_id):
+    """ Edit a blog post """
+
+    blog_post = get_object_or_404(BlogPost, pk=blog_post_id)
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, request.FILES, instance=blog_post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated post!')
+            return redirect(reverse('blog'))
+        else:
+            messages.error(
+                request, 'Failed to update post. \
+                    Please ensure the form is valid.')
+    else:
+        form = BlogPostForm(instance=blog_post)
+
+    template = 'blog/edit_blog_post.html'
+    context = {
+        'form': form,
+        'blog_post': blog_post,
+    }
+
+    return render(request, template, context)
