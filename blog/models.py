@@ -5,9 +5,7 @@ from profiles.models import UserProfile
 
 
 class BlogPost(models.Model):
-    user_profile = models.ForeignKey(
-        UserProfile, on_delete=models.SET_NULL,
-        null=True, blank=True, related_name='blog_posts')
+    user_profile = models.CharField(max_length=200, default='')
     product = models.ForeignKey(
         Product, on_delete=models.SET_NULL,
         null=True, blank=True, related_name='product')
