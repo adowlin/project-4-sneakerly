@@ -86,7 +86,21 @@
         </header>
 
         {% if messages %}
-            <div class="message-container"></div>
+            <div class="message-container">
+                {% for message in messages %}
+                    {% with message.level as level %}
+                        {% if level == 40 %}
+                            {% include 'includes/toasts/toast_error.html' %}
+                        {% elif level == 30 %}
+                            {% include 'includes/toasts/toast_warning.html' %}
+                        {% elif level == 25 %}
+                            {% include 'includes/toasts/toast_success.html' %}
+                        {% else %}
+                            {% include 'includes/toasts/toast_info.html' %}
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
         {% endif %}
 
         <div class="page-header row">
@@ -117,7 +131,14 @@
         </footer>
 
         {% block postloadjs %}
-
+            <script type="text/javascript">
+                // JS to initialize & show Boostrap Toasts
+                var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+                var toastList = toastElList.map(function (toastEl) {
+                    return new bootstrap.Toast(toastEl)
+                })
+                toastList.forEach(toast => toast.show()); // Show the toasts - solution found here: https://stackoverflow.com/questions/63515279/how-to-initialize-toasts-with-javascript-in-bootstrap-5
+            </script>
         {% endblock %}
         <script src="{% static 'js/script.js' %}"></script>
     </body>

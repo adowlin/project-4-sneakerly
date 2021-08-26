@@ -360,6 +360,19 @@ footer {
     color: rgb(166, 221, 221);
 }
 
+/* ---------------------------------------- Toasts */
+
+.message-container {
+    position: fixed;
+    top: 20rem;
+    right: 0.5rem;
+    z-index: 99999999999999999999999999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
 /* ---------------------------------------- Media Queries */
 
 @media only screen and (min-width: 576px) {
