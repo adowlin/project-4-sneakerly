@@ -373,6 +373,38 @@ footer {
     overflow: visible;
 }
 
+.toast-body {
+    color: rgb(82, 72, 156);
+}
+
+.toast-error > .toast-header {
+    background-color: rgb(242, 64, 79);
+    color: rgb(235, 235, 235);
+    font-size: 1rem;
+    text-shadow: 1px 1px black;
+}
+
+.toast-info > .toast-header {
+    background-color: rgb(163, 216, 216);
+    color: rgb(82, 72, 156);
+    font-size: 1rem;
+    text-shadow: 1px 1px rgb(235, 235, 235);
+}
+
+.toast-success > .toast-header {
+    background-color: rgb(43, 120, 120);
+    color: rgb(235, 235, 235);
+    font-size: 1rem;
+    text-shadow: 1px 1px black;
+}
+
+.toast-warning > .toast-header {
+    background-color: orange;
+    color: rgb(82, 72, 156);
+    font-size: 1rem;
+    text-shadow: 1px 1px rgb(235, 235, 235);
+}
+
 /* ---------------------------------------- Media Queries */
 
 @media only screen and (min-width: 576px) {
