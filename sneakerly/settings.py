@@ -30,7 +30,6 @@ DEBUG = 'DEVELOPMENT' in os.environ
 ALLOWED_HOSTS = ['ms4-sneakerly.herokuapp.com', 'localhost']
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
