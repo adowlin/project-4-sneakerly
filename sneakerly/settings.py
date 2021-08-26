@@ -179,6 +179,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if 'USE_AWS' in os.environ:
+
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'ms4-sneakerly'
     AWS_S3_REGION_NAME = 'eu-west-1'
