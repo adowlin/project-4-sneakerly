@@ -56,47 +56,54 @@
         <hr class="text-center col-8 offset-2">
     </div>
     <div class="container-fluid checkout-form-container">
-        <div class="row mt-2 checkout-form">
-            <div class="col-12 col-lg-6 offset-lg-3">
-                <p class="text-center text-muted">Please fill out the form below to complete your order.</p>
-                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
-                    {% csrf_token %}
-                    <fieldset class="rounded px-3 mb-2">
-                        <legend class="fieldset-label small px-2 w-auto">Details</legend>
-                        {{ booking_form.full_name | as_crispy_field }}
-                        {{ booking_form.email | as_crispy_field }}
-                    </fieldset>
-                    <fieldset class="rounded px-3 mb-2">
-                        <legend class="fieldset-label small px-2 w-auto">Delivery</legend>
-                        {{ booking_form.street_address1 | as_crispy_field }}
-                        {{ booking_form.street_address2 | as_crispy_field }}
-                        {{ booking_form.town_or_city | as_crispy_field }}
-                        {{ booking_form.county | as_crispy_field }}
-                        {{ booking_form.postcode | as_crispy_field }}
-                        {{ booking_form.phone_number | as_crispy_field }}
-                        <label for="startDate" class="form-label">Choose Rental Start Date:</label>
-                        <input type="date" class="form-control" id="startDate" name="startDate" min="2021-08-11" max="2021-10-11" aria-describedby="startDate">
-                    </fieldset>
-                    <fieldset class="rounded px-3 mb-2">
-                        <legend class="fieldset-label small px-2 w-auto">Payment</legend>
-                        <!-- Stripe card element -->
-                        <div id="card-element" class="mb-2"></div>
-                        <!-- Display card errors -->
-                        <div id="card-errors" class="mb-3 text-danger" role="alert"></div>
-                    </fieldset>
-                    <div class="submit-button ms-3 mb-2">                    
-                        <button id="submit-button" name="submitButton" class="btn green--btn mb-2">
-                            <i class="bi bi-lock"></i> Complete Booking
-                        </button>
-                        <p class="small text-danger my-0 col-12">
-                            <i class="bi bi-exclamation-circle"></i>
-                            <span>Your card will be charged €{{ total_cost }}.<br>
-                                Payment information will be saved to your profile.</span>
-                        </p>
-                    </div>
-                </form>
+        {% if request.user.is_authenticated %}
+            <div class="row mt-2 checkout-form">
+                <div class="col-12 col-lg-6 offset-lg-3">
+                    <p class="text-center text-muted">Please fill out the form below to complete your order.</p>
+                    <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                        {% csrf_token %}
+                        <fieldset class="rounded px-3 mb-2">
+                            <legend class="fieldset-label small px-2 w-auto">Details</legend>
+                            {{ booking_form.full_name | as_crispy_field }}
+                            {{ booking_form.email | as_crispy_field }}
+                        </fieldset>
+                        <fieldset class="rounded px-3 mb-2">
+                            <legend class="fieldset-label small px-2 w-auto">Delivery</legend>
+                            {{ booking_form.street_address1 | as_crispy_field }}
+                            {{ booking_form.street_address2 | as_crispy_field }}
+                            {{ booking_form.town_or_city | as_crispy_field }}
+                            {{ booking_form.county | as_crispy_field }}
+                            {{ booking_form.postcode | as_crispy_field }}
+                            {{ booking_form.phone_number | as_crispy_field }}
+                            <label for="startDate" class="form-label">Choose Rental Start Date:</label>
+                            <input type="date" class="form-control" id="startDate" name="startDate" min="2021-08-11" max="2021-10-11" aria-describedby="startDate">
+                        </fieldset>
+                        <fieldset class="rounded px-3 mb-2">
+                            <legend class="fieldset-label small px-2 w-auto">Payment</legend>
+                            <!-- Stripe card element -->
+                            <div id="card-element" class="mb-2"></div>
+                            <!-- Display card errors -->
+                            <div id="card-errors" class="mb-3 text-danger" role="alert"></div>
+                        </fieldset>
+                        <div class="submit-button ms-3 mb-2">                    
+                            <button id="submit-button" name="submitButton" class="btn green--btn mb-2">
+                                <i class="bi bi-lock"></i> Complete Booking
+                            </button>
+                            <p class="small text-danger my-0 col-12">
+                                <i class="bi bi-exclamation-circle"></i>
+                                <span>Your card will be charged €{{ total_cost }}.<br>
+                                    Payment information will be saved to your profile.</span>
+                            </p>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
+        {% else %}
+            <p class="text-center text-muted">
+                You need an account before renting!<br>
+                Please <a href="{% url 'account_login' %}">log in</a> or <a href="{% url 'account_signup' %}">create an account</a> now.
+            </p>
+        {% endif %}
     </div>
     <div id="loading-overlay">
         <span class="icon loading-spinner">

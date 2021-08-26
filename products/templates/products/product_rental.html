@@ -21,15 +21,30 @@
                 </div>
                 <div class="col-12 col-md-3">
                     <div class="row">
-                        <form method="POST" action="{% url 'bag' product.id %}" class="date-picker-form">
-                            {% csrf_token %}
-                            <label for="startDate" class="form-label">Choose Rental Start Date:</label>
-                            <input type="date" class="form-control" id="startDate" name="startDate" min="2021-08-11" max="2021-10-11" aria-describedby="startDate">
-                            <label for="startDate" class="form-label mt-2">Number of Rental Days:</label>
-                            <input type="number" class="form-control" id="id_rentDays_{{ product.id }}" name="rentDays" min="1" max="10" data-item_id="{{ product.id }}" aria-describedby="rentDays">
-                            <button type="submit" class="btn rent--btn col-6 offset-3 mt-2"><i class="bi bi-cart"></i> Rent</button>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        </form>
+                        {% if request.user.is_authenticated %}
+                            <form method="POST" action="{% url 'bag' product.id %}" class="date-picker-form">
+                                {% csrf_token %}
+                                <label for="startDate" class="form-label">Choose Rental Start Date:</label>
+                                <input type="date" class="form-control" id="startDate" name="startDate" min="2021-08-11" max="2021-10-11" aria-describedby="startDate">
+                                <label for="startDate" class="form-label mt-2">Number of Rental Days:</label>
+                                <input type="number" class="form-control" id="id_rentDays_{{ product.id }}" name="rentDays" min="1" max="10" data-item_id="{{ product.id }}" aria-describedby="rentDays">
+                                <button type="submit" class="btn rent--btn col-6 offset-3 mt-2"><i class="bi bi-cart"></i> Rent</button>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </form>
+                        {% else %}
+                            <form method="" action="" class="date-picker-form">
+                                {% csrf_token %}
+                                <label for="startDate" class="form-label">Choose Rental Start Date:</label>
+                                <input type="date" class="form-control" id="startDate" name="startDate" min="2021-08-11" max="2021-10-11" aria-describedby="startDate" disabled>
+                                <label for="startDate" class="form-label mt-2">Number of Rental Days:</label>
+                                <input type="number" class="form-control" id="id_rentDays_{{ product.id }}" name="rentDays" min="1" max="10" data-item_id="{{ product.id }}" aria-describedby="rentDays" disabled>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </form>
+                            <p class="text-center text-muted">
+                                You need an account before renting!<br>
+                                Please <a href="{% url 'account_login' %}">log in</a> or <a href="{% url 'account_signup' %}">create an account</a> now.
+                            </p>
+                        {% endif %}
                     </div>
                 </div>
             </div>

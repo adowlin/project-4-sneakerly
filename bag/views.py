@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from products.models import Product
 
 
+@login_required
 def bag(request, product_id):
     """ Add a product to the bag """
     bag = request.session.get('bag', {})
