@@ -20,31 +20,39 @@
     <div class="row main-content-container mt-2">
         <div class="col-12">
             <div class="row">
-                {% for blog_post in blog_posts %}
-                    <div class="col-sm-12 col-md-8 offset-md-2 mb-3 product-cols">
-                        <div class="card h-200 border-0">
-                            <a href="{% url 'product_rental' blog_post.product.id %}">
-                                <img class="card-img-top img-fluid" src="{{ blog_post.image.url }}" alt="{{ blog_post.product.name }}">
-                            </a>
-                            <div class="card-body pb-0">
-                                <p class="mb-0">{{ blog_post.title }}</p>
-                                {% if request.user.is_authenticated %}
-                                    {% if request.user.is_superuser %}
-                                        <a href="{% url 'edit_blog_post' blog_post.id %}"><i class="bi bi-pencil-square"></i></a> |
-                                        <a href="{% url 'delete_blog_post' blog_post.id %}" class="text-danger"><i class="bi bi-trash"></i></a>
-                                    {% endif %}    
-                                {% endif %}
-                                <p class="mb-0 text-end">Added By: {{ blog_post.user_profile }}</p>
+                {% if blog_posts %}
+                    {% for blog_post in blog_posts %}
+                        <div class="col-sm-12 col-md-8 offset-md-2 mb-3 product-cols">
+                            <div class="card h-200 border-0">
+                                <a href="{% url 'product_rental' blog_post.product.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ blog_post.image.url }}" alt="{{ blog_post.product.name }}">
+                                </a>
+                                <div class="card-body pb-0">
+                                    <p class="mb-0">{{ blog_post.title }}</p>
+                                    {% if request.user.is_authenticated %}
+                                        {% if request.user.is_superuser %}
+                                            <a href="{% url 'edit_blog_post' blog_post.id %}"><i class="bi bi-pencil-square"></i></a> |
+                                            <a href="{% url 'delete_blog_post' blog_post.id %}" class="text-danger"><i class="bi bi-trash"></i></a>
+                                        {% endif %}    
+                                    {% endif %}
+                                    <p class="mb-0 text-end">Added By: {{ blog_post.user_profile }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                {% else %}
+                    <p class="text-center text-muted">
+                        No one's posted anything yet. :(
+                    </p>
+                {% endif %}
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 col-md-6 offset-md-3">
-            <a href="{% url 'add_blog_post' %}" class="text-center col-12"><button class="btn cta--btn"><i class="bi bi-plus-lg"></i> Add Post</button></a>
+    {% if request.user.is_authenticated %}
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <a href="{% url 'add_blog_post' %}" class="text-center col-12"><button class="btn cta--btn"><i class="bi bi-plus-lg"></i> Add Post</button></a>
+            </div>
         </div>
-    </div>
+    {% endif %}
 {% endblock %}
