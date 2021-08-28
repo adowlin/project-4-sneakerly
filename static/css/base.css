@@ -360,6 +360,11 @@ footer {
     color: rgb(166, 221, 221);
 }
 
+.footer > .col-12 > .row > .footer-link:hover {
+    color: rgb(90, 196, 196);
+    text-decoration: underline;
+}
+
 .footer-copyright {
     color: rgb(166, 221, 221, 0.75);
 }
