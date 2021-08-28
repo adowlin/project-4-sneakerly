@@ -76,7 +76,10 @@ body {
     color: rgb(166, 221, 221);
 }
 
-#navigation #logo:hover,
+#navigation #logo:hover {
+    color: rgb(90, 196, 196);
+    text-decoration: none;
+}
 #navigation .nav-item:hover,
 #navigation a:hover,
 #navModal .nav-item:hover, 
