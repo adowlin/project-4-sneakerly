@@ -155,6 +155,8 @@ The User Experience for this site was planned & developed using the [5 Planes of
 
 ## Testing
 
+Testing documentation can be found in the separate [TESTING.md](TESTING.md) file.
+
 ## Deployment
 ### Local Deployment
 
