@@ -1,6 +1,8 @@
 <h1 align="center">Sneakerly</h1>
 
-[View the deployed site here.](Deployed Heroku Link)
+[<img align="center" src="readme-assets/images/sneakerly-mockups.png" alt="responsive site mockups">](https://ms4-sneakerly.herokuapp.com/)
+
+[View the deployed site here.](https://ms4-sneakerly.herokuapp.com/)
 
 Sneakerly is a sneaker rental websitw that allows users to rent premium sneakers from a reputable source. This website was created for submission as my Milestone Project 4 as part of the Diploma in Full Stack Software Development course with Code Institute.<br>
  
@@ -28,7 +30,7 @@ The User Experience for this site was planned & developed using the [5 Planes of
 ### Skeleton
 #### Wireframes
 - Wireframes created using [Balsamiq](https://balsamiq.com/):<br>
-    [Wireframes PDF](/readme-assets/sneakerly-wireframes1.pdf)
+    [Wireframes PDF](/readme-assets/sneakerly-wireframes2.pdf)
 
 ### Surface
 
