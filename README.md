@@ -105,19 +105,53 @@ The User Experience for this site was planned & developed using the [5 Planes of
     - Chosen using [coolors.co](https://coolors.co/). This color palette was chosen to provide sufficient contrasting color options for accessibility purposes, including multiple shades of similar colors. The colors used were chosen to provide a fun, engaging design throughout the site's UI.<br>
     [<img src="readme-assets/images/sneakerly-palette.png" alt="color palette" width="600"/>](https://coolors.co/52489c-ce84ad-b9508a-2b7878-5ac4c4-a6dddd-a3d8d8-ebebeb-f2404f-f45b69)
 
-- Typography:
+- **Typography:**
     - [Newake Font](https://indieground.net/product/newake-font/) was chosen for the site's logo, and [Project Blackbird](https://pixelsurplus.com/collections/free-fonts/products/projekt-blackbird-free-sans-serif-font) was chosen for the site's text. These fonts were chosen to continue the cool, fun UI design theme.
 
-- Images:
+- **Images:**
     - [Unsplash](https://unsplash.com/) was used to select the site's images, full image credits can be found in the [Media Credits](#media).
 
 ## Technologies Used
 
 ### Tools
+- [GitPod](https://www.gitpod.io/)
+    - Used as the preferred IDE for development.
+- [Git](https://git-scm.com/)
+    - Used via the Gitpod terminal for version control, with regular commits, and to push to GitHub & Heroku.
+- [GitHub](https://github.com/)
+    - Used to store the site's code repository.
+- [Heroku](https://www.heroku.com/)
+    - Used to host the deployed site.
+- [Lucidchart](https://www.lucidchart.com)
+    - To create the site's structural flowchart.
+- [Balsamiq](https://balsamiq.com/)
+    - To create the site's wireframes.
+- [TinyJPG](https://tinyjpg.com/)
+    - Used to compress the site's images to improve load times.
 
 ### Front-End Technologies
+- [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [JQuery 3.6.0](https://jquery.com/)
+    - Used as the primary JavaScript library.
+- [Bootstrap 5.0.2](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+    - Used as a responsive front-end framework.
 
 ### Back-End Technologies
+- [Python](https://www.python.org/)
+- [Django](https://www.djangoproject.com/)
+    - Used with Python as the full-stack web framework.
+- [Django Allauth](https://django-allauth.readthedocs.io/en/latest/)
+    - Used to create the site's authentication functionality.
+- [PostgreSQL](https://www.postgresql.org/)
+    - Used with Heroku to store the live site's relational database.
+
+### APIs
+- [Twilio SendGrid](https://www.twilio.com/sendgrid/email-api)
+    - Used via Python back-end to send emails to the site owner from the contact form.
+- [Stripe Payments](https://stripe.com/en-ie/payments)
+    - Used Stripe Elements via JavaScript for the Checkout's front-end card element, and to create payments from the back-end via Python.
 
 ## Testing
 
