@@ -1,0 +1,1 @@
+Sneakerly Rental Confirmation for: {{ booking.booking_number }}

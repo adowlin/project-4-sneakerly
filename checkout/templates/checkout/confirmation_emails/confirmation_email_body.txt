@@ -1,0 +1,29 @@
+Hello {{ booking.full_name }}
+
+Thank you for your rental with Sneakerly! Your booking information is below:
+
+Booking Number: {{ booking.booking_number }}
+Booking Date: {{ booking.order_date }}
+
+Booking Total: €{{ order.order_total }}
+{% for item in booking.lineitems.all %}
+    Grand Total: €{{ item.lineitem_total }}
+{% endfor %}
+
+Your order will be shipped to:
+
+{{ booking.street_address1 }},
+{{ booking.town_or_city }},
+{% if booking.county %}
+    {{ booking.county }}
+{% endif %}
+{% if booking.postcode %}
+    {{ booking.postcode }}
+{% endif %}
+
+We've got your phone number on file as {{ booking.phone_number }}
+
+If you have any questions, feel free to contact us at {{ contact_email }}
+
+Well wear!
+The Sneakerly Team

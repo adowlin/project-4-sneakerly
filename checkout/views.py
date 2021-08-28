@@ -3,6 +3,8 @@ from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 from .models import Booking, BookingLineItem
 from .forms import BookingForm
@@ -149,6 +151,22 @@ def checkout_success(request, booking_number):
         user_profile_form = UserProfileForm(profile_data, instance=profile)
         if user_profile_form.is_valid():
             user_profile_form.save()
+
+        """Send the user a confirmation email"""
+        cust_email = booking.email
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            {'booking': booking})
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_body.txt',
+            {'booking': booking, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )  
 
     messages.success(request, f'Booking successfully processed! \
         Your booking number is {booking_number}. A confirmation \
