@@ -347,7 +347,7 @@ body {
 /* ---------------------------------------- Footer */
 
 footer {
-    height: 20vh;
+    height: 30vh;
     background-color: rgb(82, 72, 156);
     color: rgb(166, 221, 221);
     z-index: 999999;
@@ -358,6 +358,10 @@ footer {
 .footer > .col-12 > .row > .col-6 {
     text-decoration: none;
     color: rgb(166, 221, 221);
+}
+
+.footer-copyright {
+    color: rgb(166, 221, 221, 0.75);
 }
 
 /* ---------------------------------------- Toasts */
@@ -485,5 +489,11 @@ footer {
     .page-header > #auth-image-head > h1 {
         font-size: 5vw;
         margin-top: -20vh;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    footer {
+        height: 25vh;
     }
 }
