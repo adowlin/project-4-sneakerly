@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['ms4-sneakerly.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['ms4-sneakerly.herokuapp.com', 'localhost', 'techsini.com/multi-mockup/']
 
 # Application definition
 INSTALLED_APPS = [

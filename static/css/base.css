@@ -161,7 +161,7 @@ body {
     padding: 0;
 }
 
-.sub-content-container > .clean-img {
+.sub-content-container .clean-img {
     width: 100%;
     margin-top: 1rem;
     height: 25rem;
@@ -170,16 +170,16 @@ body {
     background-size: cover;
 }
 
-.sub-content-container > .return-img {
+.sub-content-container .return-img {
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 1rem;
     height: 25rem;
     padding: 0;
     background: url('/media/returns.jpg') no-repeat scroll center;
     background-size: cover;
 }
 
-.sub-content-container > .info-card {
+.sub-content-container .info-card {
     margin-top: -3rem;
     margin-bottom: 2rem;
     color: rgb(82, 72, 156);
