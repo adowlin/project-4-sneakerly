@@ -101,7 +101,9 @@ The User Experience for this site was planned & developed using the [5 Planes of
 
 ### Surface
 
-- Color Scheme:
+- **Color Scheme:**
+    - Chosen using [coolors.co](https://coolors.co/). This color palette was chosen to provide sufficient contrasting color options for accessibility purposes, including multiple shades of similar colors. The colors used were chosen to provide a fun, engaging design throughout the site's UI.<br>
+    [<img src="readme-assets/images/sneakerly-palette.png" alt="color palette" width="400"/>](https://coolors.co/52489c-ce84ad-b9508a-2b7878-5ac4c4-a6dddd-a3d8d8-ebebeb-f2404f-f45b69)
 
 - Typography:
 
