@@ -20,32 +20,38 @@
             <hr class="text-center col-8 offset-2">
         </div>
         <div class="row profile-info">
-            <div class="booking-history table-responsive col-12">
-                <table class="table table-sm table-borderless table-striped">
-                    <thead>
-                        <th>Reference</th>
-                        <th>Date</th>
-                        <th>Item</th>
-                        <th>Total</th>
-                    </thead>
-                    <tbody>
-                        {% for booking in bookings %}
-                            <tr>
-                                <td>
-                                    <a href="{% url 'booking_history' booking.booking_number %}" title="{{ booking.booking_number }}">
-                                        {{ booking.booking_number|truncatechars:10 }}
-                                    </a>
-                                </td>
-                                <td>{{ booking.order_date }}</td>
-                                {% for item in booking.lineitems.all %}
-                                    <td>{{ item.product.name }} x{{ item.rental_days }} Days</td>
-                                    <td>€{{ item.lineitem_total }}</td>
-                                {% endfor %}
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+            {% if bookings %}
+                <div class="booking-history table-responsive col-12">
+                    <table class="table table-sm table-borderless table-striped">
+                        <thead>
+                            <th>Reference</th>
+                            <th>Date</th>
+                            <th>Item</th>
+                            <th>Total</th>
+                        </thead>
+                        <tbody>
+                            {% for booking in bookings %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'booking_history' booking.booking_number %}" title="{{ booking.booking_number }}">
+                                            {{ booking.booking_number|truncatechars:10 }}
+                                        </a>
+                                    </td>
+                                    <td>{{ booking.order_date }}</td>
+                                    {% for item in booking.lineitems.all %}
+                                        <td>{{ item.product.name }} x{{ item.rental_days }} Days</td>
+                                        <td>€{{ item.lineitem_total }}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="text-center text-muted">
+                    You don't have any rentals yet.
+                </p>
+            {% endif %}
         </div>
     </div>
     <div class="col-12 col-md-5">
