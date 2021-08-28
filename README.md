@@ -106,6 +106,7 @@ The User Experience for this site was planned & developed using the [5 Planes of
     [<img src="readme-assets/images/sneakerly-palette.png" alt="color palette" width="400"/>](https://coolors.co/52489c-ce84ad-b9508a-2b7878-5ac4c4-a6dddd-a3d8d8-ebebeb-f2404f-f45b69)
 
 - Typography:
+    - [Newake Font](https://indieground.net/product/newake-font/) was chosen for the site logo, and [Project Blackbird](https://www.awwwards.com/inspiration/projekt-blackbird-free-sans-serif-font) was chosen for the site's text. These fonts were chosen to continue the cool, fun UI design theme.
 
 - Images:
 
