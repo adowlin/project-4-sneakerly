@@ -4,7 +4,7 @@
 
 [View the deployed site here.](https://ms4-sneakerly.herokuapp.com/)
 
-Sneakerly is a sneaker rental websitw that allows users to rent premium sneakers from a reputable source. This website was created for submission as my Milestone Project 4 as part of the Diploma in Full Stack Software Development course with Code Institute.<br>
+Sneakerly is a sneaker rental website that allows users to rent premium sneakers from a reputable source. This website was created for submission as my Milestone Project 4 as part of the Diploma in Full Stack Software Development course with Code Institute.<br>
  
 ## User Experience (UX)
 
@@ -16,6 +16,31 @@ The User Experience for this site was planned & developed using the [5 Planes of
 
 ### Strategy
 #### User Stories
+
+- As a first-time visitor, I want to:
+    - Find out how the rental process works.
+    - See a directory of products that are available to rent.
+    - Register for an account on the site to allow me to rent a product.
+    - Rent a product while authenticated.
+    - Find answers to common questions I have about the business & products.
+    - Contact the site owners with any questions not answered by the site information.
+    - See a blog containing photos from regular site users.
+
+- As a returning visitor, I want to:
+    - Log in to my user profile.
+    - See a list of past rentals.
+    - See detailed information about past rentals.
+    - Save my default delivery information.
+    - Update my default delivery information.
+    - See my current default delivery information.
+    - Pre-fill the delivery information on the checkout page when booking a new rental.
+    - Upload photos to the blog of the products in-use during my rental period.
+
+- As the site owner, I want to:
+    - Manage users, bookings, products, and blog posts.
+    - Have superuser access to blog posts to moderate the content.
+    - Receive emails to notify me of questions asked via the contact form.
+    - Earn money from rentals by charging users up-front.
 
 ### Scope
 #### Existing Features
