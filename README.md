@@ -128,6 +128,10 @@ The User Experience for this site was planned & developed using the [5 Planes of
     - To create the site's wireframes.
 - [TinyJPG](https://tinyjpg.com/)
     - Used to compress the site's images to improve load times.
+- [Techsini](http://techsini.com/multi-mockup/) 
+    - Used to create the mockup image used in the README file.
+- [favicon.io](https://favicon.io/)
+    - Used to generate the site's favicon image.
 
 ### Front-End Technologies
 - [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
