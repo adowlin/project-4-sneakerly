@@ -50,7 +50,7 @@ Main [README.md](README.md) file<br>
     - On the Profile page, a form is available to save default delivery information to the currently logged-in user profile.
     - On the Checkout page, the delivery information entered is automatically saved to the current user's profile.
 - Update my default delivery information;
-    - On the Profile page, a form, that is pre-filled with the current default information, is available to update default delivery information to the currently logged-in user profile.
+    - On the Profile page, a form that is pre-filled with the current default information, is available to update default delivery information to the currently logged-in user profile.
 - See my current default delivery information;
     - On the Profile page, the form is pre-filled with the current default delivery information.
 - Pre-fill the delivery information on the checkout page when booking a new rental;
@@ -68,12 +68,28 @@ Main [README.md](README.md) file<br>
     - The "edit blog post" button directs to the "Edit Blog Post" page, where the post's details can be edited and saved.
     - The "delete blog post" icon button deletes the blog post.
 - Receive emails to notify me of questions asked via the contact form;
-    - Upon successful submission of the "Contact" page form, and email is sent to the site owner's email address containing details of the submission.
+    - Upon successful submission of the "Contact" page form, an email is sent to the site owner's email address containing details of the submission.
 - Earn money from rentals by charging users up-front;
-    - The Checkout page collects user's card details at the time of booking, and will not allow user's to make bookings without a successful payment.
+    - The Checkout page collects user's card details at the time of booking, and will not allow users to make bookings without a successful payment.
 
 ### Manual Testing
+#### All Pages
+Manual testing was performed on the following elements that appear across all pages on the site, to ensure that all are working as expected;
 
+- Navbar:
+    - Clicking the site logo in the navbar correctly directs back to the site's home page.
+    - All navigation links direct the user to the correct site page for each link.
+    - Collapsible sidebar button opens the modal navigation element on mobile devices.
+    - All navigation links within the mobile modal navigation correctly direct the user to the corresponding site page.
+    - Hovering over the navigation links triggers the expected hover effect color & underline.
+    - Hovering over the site logo triggers the expected hover effect color.
+    - Login & Register navigation links only appear when the user is unauthenticated, and correctly direct to their respective pages.
+    - Profile and Logout navigation links correctly appear only when a user is already logged in, and correctly direct to the Profile page, and log the user out, respectively.
+    - Navbar diagonal shape correctly shrinks back to a regular rectangle navbar shape when the appropriate scroll position is reached.
+- Footer:
+    - External links open the correct external site in a new tab.
+    - Contact & FAQs links direct to the internal site pages correctly.
+    - Hovering over the footer links triggers the expected hover effect color & underline.
 
 ### Compatibility & Responsiveness
 
