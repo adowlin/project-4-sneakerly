@@ -17,7 +17,7 @@ The User Experience for this site was planned & developed using the [5 Planes of
 ### Strategy
 #### User Stories
 
-- As a first-time visitor, I want to:
+- **As a first-time visitor, I want to:**
     - Find out how the rental process works.
     - See a directory of products that are available to rent.
     - Register for an account on the site to allow me to rent a product.
@@ -26,7 +26,7 @@ The User Experience for this site was planned & developed using the [5 Planes of
     - Contact the site owners with any questions not answered by the site information.
     - See a blog containing photos from regular site users.
 
-- As a returning visitor, I want to:
+- **As a returning visitor, I want to:**
     - Log in to my user profile.
     - See a list of past rentals.
     - See detailed information about past rentals.
@@ -36,7 +36,7 @@ The User Experience for this site was planned & developed using the [5 Planes of
     - Pre-fill the delivery information on the checkout page when booking a new rental.
     - Upload photos to the blog of the products in-use during my rental period.
 
-- As the site owner, I want to:
+- **As the site owner, I want to:**
     - Manage users, bookings, products, and blog posts.
     - Have superuser access to blog posts to moderate the content.
     - Receive emails to notify me of questions asked via the contact form.
@@ -44,6 +44,48 @@ The User Experience for this site was planned & developed using the [5 Planes of
 
 ### Scope
 #### Existing Features
+
+- **Navbar with Site Logo:**
+    - The navbar & site logo provide a visual design feature with the diagonal shaping. Upon scrolling down the page, the navbar automatically shrinks back to a regular shape. The navbar links provide a means for users to navigate the site.
+
+- **Homepage with Hero Image & Lead Text:**
+    - The hero image provides an immediate visual cue to introduce the type of products available on the site. Just below, the lead text describes the purpose of the site.
+
+- **Homepage Instructions Summary:**
+    - On the homepage, the main content section provides a brief description of how the site works, giving instructions on how to use the site to users. Accompanied by images and further informational cards further down the page, the user is concisely presented with all the information they need to get started using the site.
+
+- **Registration:**
+    - Provides functionality for users to create an account on the site, in order to rent products and access extra functionality on the site, such as adding blog posts. User input is validated, and upon successful registration, a User object is created in the database.
+
+- **Login/Logout:**
+    - Provided users who have registered an account to access their profile, and additional features only available to authenticated users.
+
+- **Profile:**
+    - Allows authenticated users to see their booking history, if applicable, and provides functionality to update/add their default delivery information via a form. Successful submission of this form creates a UserProfile object in the database. In the booking history, the user can click on the booking numbers to see full details of the rental.
+
+- **Directory of Products:**
+    - The "All Sneakers" directory page provides all users with a list of sneakers that are currently available to rent. Laid out in a grid format using cards to include product images, prices, categories, and a "Rent" button.
+
+- **Product Detail Page:**
+    - Provides product image & further details, and allows authenticated users to enter their rental start date, number of rental days, and continue to the next step of the booking process.
+
+- **Rental Confirmation Page (Bag):**
+    - Displays a summary of the user's booking before continuing to the checkout process. User's can choose to "Cancel" and return to the Product Detail page, or "Confirm" and continue to the Checkout page.
+
+- **Checkout Page:**
+    - Displays a summary of the rental details at the top of the page, providing an option for users to return to the Product Detail page once again via the "Adjust Dates" button. Provides users with a checkout form with validation, prefilled with their default delivery information if present. After clicking the "Complete Checkout" button, a full page overlay is displayed to prevent duplication of the payment if the button is clicked more than once.
+
+- **Checkout Success Page:**
+    - If the payment is successful, the user is redirected to a Checkout Success page, providing the user with their booking number, and the details of their booking. A booking confirmation email is sent to the user's email address.
+
+- **Blog:**
+    - Displays blog posts to all users, and allows authenticated users to add a blog post. When adding a post, the user can upload a photo of the product they have rented. Provides functionality for the superuser to edit and delete blog posts.
+
+- **FAQs Page:**
+    - Provides users with a list of answers to frequently asked questions about the site. Information is arranged in an accordian, to allow users to expand the question to see the answers they wish to see.
+
+- **Contact Page:**
+    - Allows users to contact the site owner with any questions not answered by information available on the site via a contact form with validation.
 
 #### Future Planned Features
 
