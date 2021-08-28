@@ -103,12 +103,13 @@ The User Experience for this site was planned & developed using the [5 Planes of
 
 - **Color Scheme:**
     - Chosen using [coolors.co](https://coolors.co/). This color palette was chosen to provide sufficient contrasting color options for accessibility purposes, including multiple shades of similar colors. The colors used were chosen to provide a fun, engaging design throughout the site's UI.<br>
-    [<img src="readme-assets/images/sneakerly-palette.png" alt="color palette" width="400"/>](https://coolors.co/52489c-ce84ad-b9508a-2b7878-5ac4c4-a6dddd-a3d8d8-ebebeb-f2404f-f45b69)
+    [<img src="readme-assets/images/sneakerly-palette.png" alt="color palette" width="600"/>](https://coolors.co/52489c-ce84ad-b9508a-2b7878-5ac4c4-a6dddd-a3d8d8-ebebeb-f2404f-f45b69)
 
 - Typography:
-    - [Newake Font](https://indieground.net/product/newake-font/) was chosen for the site logo, and [Project Blackbird](https://pixelsurplus.com/collections/free-fonts/products/projekt-blackbird-free-sans-serif-font) was chosen for the site's text. These fonts were chosen to continue the cool, fun UI design theme.
+    - [Newake Font](https://indieground.net/product/newake-font/) was chosen for the site's logo, and [Project Blackbird](https://pixelsurplus.com/collections/free-fonts/products/projekt-blackbird-free-sans-serif-font) was chosen for the site's text. These fonts were chosen to continue the cool, fun UI design theme.
 
 - Images:
+    - [Unsplash](https://unsplash.com/) was used to select the site's images, full image credits can be found in the [Media Credits](#media).
 
 ## Technologies Used
 
