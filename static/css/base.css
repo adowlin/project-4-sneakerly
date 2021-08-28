@@ -76,6 +76,15 @@ body {
     color: rgb(166, 221, 221);
 }
 
+#navigation #logo:hover,
+#navigation .nav-item:hover,
+#navigation a:hover,
+#navModal .nav-item:hover, 
+#navModal a:hover {
+    color: rgb(90, 196, 196);
+    text-decoration: underline;
+}
+
 .navbar-toggler {
     margin-right: 1rem;
 }
