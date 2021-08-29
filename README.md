@@ -92,7 +92,7 @@ The User Experience for this site was planned & developed using the [5 Planes of
 ### Structure
 #### Flowchart
 - Flowchart created using [Lucidchart](https://www.lucidchart.com):<br>
-    [Flowchart PNG](/readme-assets/images/sneakerly-flowchart-2.png)
+    [<img align="center" src="readme-assets/images/sneakerly-flowchart-2.png" alt="flowchart" height="500"/>](/readme-assets/images/sneakerly-flowchart-2.png)
 
 ### Skeleton
 #### Wireframes
