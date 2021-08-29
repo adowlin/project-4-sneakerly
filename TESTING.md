@@ -238,6 +238,21 @@ Manual testing was performed on the following elements that appear on the FAQs &
     - After submission, the page reloads with a toast message confirming that the message has been sent, as expected.
 
 ### Compatibility & Responsiveness
+The final site was tested across multiple browsers and device types, with no cross-browser compatibility issues to note.
 
+- Browsers tested:
+    - Chrome (Windows, macOS, iOS, Android)
+    - Safari (macOS, iOS)
+    - Microsoft Edge (Windows, macOS)
+    - Firefox (Windows, macOS)
+    - Samsung Browser (Android)
+- Devices tested:
+    - iPhone XS
+    - Samsung Galaxy Edge
+    - Desktop PC
+    - Laptop
+    - Tablet
+
+The site was found to be fully responsive on device sizes ranging from 320px X 480px to 1920px X 1080px.
 
 ### Validation
