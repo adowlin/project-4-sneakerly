@@ -165,6 +165,40 @@ Testing documentation can be found in the separate [TESTING.md](TESTING.md) file
 
 ## Deployment
 ### Local Deployment
+The following dependencies will need to be installed in order to run this application locally:
+- [Python3](https://www.python.org/downloads) to run the application.
+- [PIP](https://pip.pypa.io/en/stable/installing) to install app requirements.
+- [GitPod](https://www.gitpod.io/) or any preferred IDE, such as [VSCode](https://code.visualstudio.com/).
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for cloning and version control.
+
+Follow the below steps for local deployment:
+
+1. Clone the GitHub repository by entering the following command into the Git terminal:
+    - `git clone https://github.com/adowlin/project-4-sneakerly.git`
+2. After cloning the project, the below environment variables need to be set, either in your IDE's config vars, or in an `env.py` file. Use your own credentials for the values where appropriate.
+    - `DEVELOPMENT` - Set to `True`
+    - `SECRET_KEY` - The Django secret key. This can be generated from the [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/).
+    - `SENDGRID_API_KEY` - This will need to be copied from the [SendGrid Account Setting Page](https://app.sendgrid.com/settings/api_keys). A free SendGrid account can be created [here](https://signup.sendgrid.com/).
+    - `STRIPE_PUBLIC_KEY` - This will need to be copied from the Publishable key on the [Stripe Dashboard API Keys Page](https://dashboard.stripe.com/test/apikeys). A free Stripe test account can be created [here](https://dashboard.stripe.com/register).
+    - `STRIPE_SECRET_KEY` - This will need to be copied from the Secret key on the [Stripe Dashboard API Keys Page](https://dashboard.stripe.com/test/apikeys).
+3. Create a `.gitignore` file, and add the `env.py` file, if present, to the list of files.
+4. Install all requirements from the [requirements.txt](requirements.txt) file using this command:
+    - `pip3 -r requirements.txt`
+5. Run the app using the following command in the terminal:
+    - `python3 manage.py runserver`
+6. The Django server should now run locally.
+7. After running the Django server for the first time, a new SQLite3 database file should be created automatically.
+    - `db.sqlite3`
+8. You will then need to make migrations using the below commands to create the database schema.
+    - `python3 manage.py makemigrations`
+    - `python3 manage.py migrate`
+9. To load the Categories and Products data from their respective JSON fixture files, you will need to run the below commands in the order listed, since the Products data relies on the Categories data.
+    - `python3 manage.py loaddata categories`
+    - `python3 manage.py loaddata products`
+10. Next, create a `superuser` in order to access the Django Admin Panel, by running the below command and following the subsequent prompts.
+    - `python3 manage.py createsuperuser`
+11. Once complete, Django should migrate the `migrations.py` files from each app to configure the below relational data schema.<br>
+[<img align="center" src="readme-assets/images/sneakerly-data.png" alt="data schema">](/readme-assets/images/sneakerly-data.png)
 
 ### Remote Deployment
 
