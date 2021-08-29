@@ -256,3 +256,31 @@ The final site was tested across multiple browsers and device types, with no cro
 The site was found to be fully responsive on device sizes ranging from 320px X 480px to 1920px X 1080px.
 
 ### Validation
+#### HTML
+- [W3C HTML Validator](https://validator.w3.org/nu/) was used to validate the HTML code on all 29 HTML templates in the app. This validator does not recognise Django templating, so returns quite a few expected, all related to Django Template scripting & variables. No errors are present in the HTML code otherwise.
+
+#### CSS
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the CSS code in the 5 CSS files present in the app. A couple of expected errors & warnings are returned when validating the `base.css` file.
+
+- Error:
+    - Property `backdrop-filter` doesn't exist : `blur(16px) saturate(180%)`
+        - `backdrop-filter` is not yet recognized by the CSS validator, despite not being a very new property. It is not yet supported by Firefox, but the default background blur on the modal where this property is used is sufficient. For design purposes, the property was kept in the code to provide the desired glass-morphism effect on the modal in other browsers.
+        - Ref: https://github.com/w3c/css-validator/issues/289
+
+- Warnings:
+    - `-webkit-text-stroke` is an unknown vendor extension
+    - `-webkit-backdrop-filter` is an unknown vendor extension
+
+- All other CSS code is valid.
+
+#### JavaScript
+- [JSHint](https://jshint.com/) was used to validate the JavaScript code in the script.js and stripe_elements.js files. No errors are present.
+- [Esprima](https://esprima.org/demo/validate.html) was also used to validate the JavaScript syntax. Returned result: "Code is syntactically valid".
+
+#### Python
+- [PEP8 Online](http://pep8online.com/) was used to validate the Python code in the 37 .py files. Expected errors were returned for the `settings.py` file:
+    - `line too long (>79 characters)` in the `AUTH_PASSWORD_VALIDATORS = [{}]` settings x4
+    - This is a known issue with the built-in Django settings, and it would not be acceptable to force a line break in the dictionary value strings.
+
+- All other Python code is fully PEP8 compliant.
+
