@@ -287,9 +287,13 @@ During development & testing, I was unable to get functionality working that wou
 - [Esprima](https://esprima.org/demo/validate.html) was also used to validate the JavaScript syntax. Returned result: "Code is syntactically valid".
 
 #### Python
-- [PEP8 Online](http://pep8online.com/) was used to validate the Python code in the 37 .py files. Expected errors were returned for the `settings.py` file:
+- [PEP8 Online](http://pep8online.com/) was used to validate the Python code in the 37 .py files.
+- Expected errors were returned for the `settings.py` file:
     - `line too long (>79 characters)` in the `AUTH_PASSWORD_VALIDATORS = [{}]` settings x4
     - This is a known issue with the built-in Django settings, and it would not be acceptable to force a line break in the dictionary value strings.
+- Another expected error is returned for the Blog app's `widgets.py` file:
+    - `line too long (>79 characters)` on line 9.
+    - It would not be acceptable to force a line break in the filepath string as doing so breaks the "Add Blog Post" and "Edit Blog Post" pages.
 
 - All other Python code is fully PEP8 compliant.
 
