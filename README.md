@@ -201,6 +201,65 @@ Follow the below steps for local deployment:
 [<img align="center" src="readme-assets/images/sneakerly-data.png" alt="data schema">](/readme-assets/images/sneakerly-data.png)
 
 ### Remote Deployment
+To deploy this app on Heroku, the following steps were taken:
+
+1. Create a `requirements.txt` file so Heroku can install the required dependencies.
+    - `pip3 freeze --local > requirements.txt`
+2. Create a `Procfile` containing information about the type of app that will be deployed.
+    - `web: gunicorn sneakerly.wsgi:application`
+    - Make sure to delete the blank line at the end of the Profile, as this can cause issues when deploying to Heroku later.
+3. Create a Heroku account [here](https://signup.heroku.com/), create a project app, and click the "Deploy" tab. 
+4. "Connect GitHub" as the Deployment Method, and select "Enable Automatic Deployment".
+5. Go to the "Resources" tab in your Heroku app, and in the Add-Ons section, search for the Heroku Postgres add-on.
+    - The free "Hobby" level can be selected.
+6. In the Heroku "Settings" tab, click the "Reveal Config Vars" button to configure the environment variables as outlined below, with your own credentials where appropriate.
+    - `DATABASE_URL` - Set to your Postgres database URL from the previous step.
+    - `SECRET_KEY` - The Django secret key. This can be generated from the [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/).
+    - `STRIPE_PUBLIC_KEY` - This will need to be copied from the Publishable key on the [Stripe Dashboard API Keys Page](https://dashboard.stripe.com/test/apikeys). A free Stripe test account can be created [here](https://dashboard.stripe.com/register).
+    - `STRIPE_SECRET_KEY` - This will need to be copied from the Secret key on the [Stripe Dashboard API Keys Page](https://dashboard.stripe.com/test/apikeys).
+    - `EMAIL_HOST_USER` - Your own email address that you wish to use for the site.
+    - `EMAIL_HOST_PASS` - A generated App Password from your email provider's settings. For this project, Gmail was used: https://support.google.com/accounts/answer/185833?hl=en 
+7. Update the project's `settings.py` file to connect to the remote database using the `dj_database_url` package.
+8. You will then need to make migrations again using the below commands to create the database schema.
+    - `python3 manage.py makemigrations`
+    - `python3 manage.py migrate`
+9. Load the Categories and Products data once again from their respective JSON fixture files. You will need to run the below commands in the order listed, since the Products data relies on the Categories data.
+    - `python3 manage.py loaddata categories`
+    - `python3 manage.py loaddata products`
+10. Next, create a new `superuser` in order to access the Django Admin Panel on the deployed site, by running the below command and following the subsequent prompts.
+    - `python3 manage.py createsuperuser`
+11. Create a free Amazon AWS account [here](https://portal.aws.amazon.com/billing/signup#/start).
+    - Amazon AWS S3 will be used to host the site's static and media files.
+12. Navigate to the [S3 page](https://s3.console.aws.amazon.com/s3/home?region=eu-west-1) from the AWS Console.
+13. Create a new S3 bucket, and follow the next steps to configure the bucket & complete setup.
+    - In Permissions > CORS configuration, paste in the below configuration code:
+    ```
+    [
+        {
+            "AllowedHeaders": [
+                "Authorization"
+            ],
+            "AllowedMethods": [
+                "GET"
+            ],
+            "AllowedOrigins": [
+                "*"
+            ],
+            "ExposeHeaders": []
+        }
+    ]
+    ```
+    - In Permissions > Bucket Policy, click "Edit", then "Policy Generator", and generate a policy. Paste the policy code back into the "Bucket Policy", and save.
+14. Navigate to the the [IAM section](https://console.aws.amazon.com/iam/home?region=eu-west-1#/home) of the AWS console, and follow the below steps to configure:
+    - Create a new "Group", and attach your S3 Bucket.
+    - Create a new "Policy", and attach to the group created in the previous step.
+    - Create a new "User" and attach to the same group. Download the new user credentials `.csv` file.
+15. In Heroku's Settings tab, add the below variables to your app's config variables, using your own user's credentials as the values:
+    - `AWS_ACCESS_KEY_ID`
+    - `AWS_SECRET_ACCESS_KEY`
+16. In your development IDE's console, run the below command to push the static and media files to AWS.
+    - `python3 manage.py collectstatic`
+17. The app should now be deployed to Heroku - click the "Open App" in the Heroku dashboard button to view the deployed site.
 
 ## Credits
 
