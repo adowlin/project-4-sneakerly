@@ -296,3 +296,5 @@ To deploy this app on Heroku, the following steps were taken:
         https://unsplash.com/photos/kKObh7tUPNc<br>
 
 ### Acknowledgements
+- Spencer, my Code Institute mentor, for guidance and encouragement throughout the development of the project.
+- My family & friends, for their help in design choices & testing of the site.
