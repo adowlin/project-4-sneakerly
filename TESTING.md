@@ -166,7 +166,7 @@ Manual testing was performed on the following elements that appear on the Produc
 
 - Rental Date Selection Form:
     - The date input field correctly allows the user to select a start date for their rental.
-    - The field does not, however, save the selected start date to attach it to the booking later on. See [Known Bugs](#known-bugs) for more detail.
+    - The field does not, however, save the selected start date to attach it to the booking later on. See [Known Issues](#known-issues) for more detail.
     - The Rental Days input field allows the user to enter their desired number of rental days, with validation, as expected.
     - The "Rent" button correctly passes the rental days to the Bag view, and redirects to the "Confirm Booking" (Bag) page.
     - The form fields are disabled when an unauthenticated user visits the page, as expected.
@@ -254,6 +254,15 @@ The final site was tested across multiple browsers and device types, with no cro
     - Tablet
 
 The site was found to be fully responsive on device sizes ranging from 320px X 480px to 1920px X 1080px.
+
+### Bugs Found & Fixed
+During compatibility testing on iOS devices, the background images that had the `background-attachment:fixed` property set were not correctly centered - instead only the top-left corner of the images were visible.
+    - This was due to the `fixed` value for `background-attachment` not being supported by iOS.
+    - A similar bug was found in a previous project, so the same fix of using `background-attachment:scroll` was used. Ref: https://github.com/adowlin/project-1-dungeons-dragons#bugs-found--fixed
+
+### Known Issues
+During development & testing, I was unable to get functionality working that would record the rental start dates from the date picker form inputs on either the Product Detail page, or the Checkout page.
+    - In the interest of demonstrating the future functionality of the data-pickers, they were kept in the final product, but their inputs are not posted to any of the app views.
 
 ### Validation
 #### HTML
