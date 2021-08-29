@@ -20,7 +20,8 @@ class Product(models.Model):
     name = models.CharField(max_length=254)
     size = models.CharField(max_length=4)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(
+        'Category', null=True, blank=True, on_delete=models.SET_NULL)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 

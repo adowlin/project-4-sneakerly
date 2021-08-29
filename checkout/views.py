@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -166,7 +167,7 @@ def checkout_success(request, booking_number):
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
-        )  
+        )
 
     messages.success(request, f'Booking successfully processed! \
         Your booking number is {booking_number}. A confirmation \
