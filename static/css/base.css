@@ -430,7 +430,7 @@ footer {
 /* ---------------------------------------- Error Pages */
 
 #error-image {
-    background: url('/media/error-imgjpg') no-repeat scroll center;
+    background: url('/media/error-img.jpg') no-repeat scroll center;
     background-size: cover;
     z-index: -999;
 }
@@ -454,7 +454,7 @@ footer {
     .page-header > #prod-image-head > h1,
     .page-header > #checkout-image-head > h1,
     .page-header > #auth-image-head > h1,
-    .page-header > #error-image-head {
+    .page-header > #error-image-head > h1 {
         font-size: 10vw;
     }
     
@@ -496,7 +496,8 @@ footer {
         height: 30rem;
     }
 
-    .page-header > #auth-image-head > h1 {
+    .page-header > #auth-image-head > h1,
+    .page-header > #error-image-head > h1 {
         font-size: 7vw;
         margin-top: -20vh;
     }
@@ -520,7 +521,8 @@ footer {
         height: 45vh;
     }
 
-    .page-header > #auth-image-head > h1 {
+    .page-header > #auth-image-head > h1,
+    .page-header > #error-image-head > h1 {
         font-size: 5vw;
         margin-top: -20vh;
     }
