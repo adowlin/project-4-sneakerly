@@ -1,5 +1,5 @@
 #profile-image {
-    background: url('/media/profile-img.jpg') no-repeat fixed center;
+    background: url('/media/profile-img.jpg') no-repeat scroll center;
     background-size: cover;
     z-index: -999;
 }

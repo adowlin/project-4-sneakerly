@@ -136,7 +136,7 @@ body {
 }
 
 #hero-image-shape {
-    background: url('/media/pastel-af1.jpg') no-repeat fixed center;
+    background: url('/media/pastel-af1.jpg') no-repeat scroll center;
     background-size: cover;
 }
 
@@ -219,7 +219,7 @@ body {
 }
 
 #auth-image {
-    background: url('/media/auth-img2.jpg') no-repeat fixed center;
+    background: url('/media/auth-img2.jpg') no-repeat scroll center;
     background-size: cover;
     z-index: -999;
 }
@@ -274,7 +274,7 @@ body {
 /* ---------------------------------------- All Products */
 
 #prod-image-shape {
-    background: url('/media/forumlow.jpg') no-repeat fixed center;
+    background: url('/media/forumlow.jpg') no-repeat scroll center;
     background-size: cover;
     z-index: -999;
 }
