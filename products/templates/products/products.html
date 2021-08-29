@@ -25,11 +25,11 @@
                             </a>
                             <div class="card-body pb-0">
                                 <p class="mb-0">{{ product.name }}</p>
+                                <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }} Per Day</p>
                             </div>
                             <div class="card-footer pt-0 border-0 text-left">
                                 <div class="row">
                                     <div class="col-7">
-                                        <p class="lead mb-0 text-left font-weight-bold">€{{ product.price }} Per Day</p>
                                         {% if product.category %}
                                             <p class="small mt-1 mb-0">
                                                 <a class="category-text" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -38,9 +38,7 @@
                                             </p>
                                         {% endif %}
                                     </div>
-                                    <a href="{% url 'product_rental' product.id %}" class="text-center col-5">
-                                        <button class="btn rent--btn"><i class="bi bi-cart"></i> Rent</button>
-                                    </a>
+                                    <a href="{% url 'product_rental' product.id %}" class="col-5 btn btn-sm rent--btn"><i class="bi bi-cart"></i> Rent</a>
                                 </div>
                             </div>
                         </div>
