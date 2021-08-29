@@ -123,7 +123,7 @@ The User Experience for this site was planned & developed using the [5 Planes of
 - [Heroku](https://www.heroku.com/)
     - Used to host the deployed site.
 - [Lucidchart](https://www.lucidchart.com)
-    - To create the site's structural flowchart.
+    - To create the site's structural flowchart, and the site's data schema.
 - [Balsamiq](https://balsamiq.com/)
     - To create the site's wireframes.
 - [TinyJPG](https://tinyjpg.com/)
@@ -264,7 +264,35 @@ To deploy this app on Heroku, the following steps were taken:
 ## Credits
 
 ### Content
+- Glassmorphism CSS effect used on mobile navigation modal adapted from: https://ui.glass/generator/
+- README file template adapted from: https://github.com/Code-Institute-Solutions/readme-template
+- Deployment section of README file adapted from: https://github.com/TravelTimN/ci-milestone05-fsfw#deployment
 
 ### Media
+- [Techsini](http://techsini.com/multi-mockup/) was used to create the mockup image used in the README file.
+- [favicon.io](https://favicon.io/) used to generate the site's favicon image.
+- [Unsplash](https://unsplash.com/) was used for sourcing the images used on the site:
+    - Hero Image: https://unsplash.com/photos/jvoZ-Aux9aw
+    - Cleaning Image: https://unsplash.com/photos/JM-qKEd1GMI
+    - Authentication Pages Image: https://unsplash.com/photos/tEv2tuos01M
+    - Profile Image: https://unsplash.com/photos/FHb3W_1idVs
+    - Contact Image: https://unsplash.com/photos/H_Y6njzNUmw
+    - Blog Image: https://unsplash.com/photos/l76tzNZhsok
+    - Product Images:<br>
+        https://unsplash.com/photos/aDZ5YIuedQg<br>
+        https://unsplash.com/photos/76w_eDO1u1E<br>
+        https://unsplash.com/photos/1vy2QcZd5FU<br>
+        https://unsplash.com/photos/7F6POgyc09w<br>
+        https://unsplash.com/photos/DMl5gG0yWWY<br>
+        https://unsplash.com/photos/ntnAuagWMI8<br>
+        https://unsplash.com/photos/updW-QUccFE<br>
+        https://unsplash.com/photos/pu-PgXMI30I<br>
+        https://unsplash.com/photos/Mh8DaC36FQo<br>
+        https://unsplash.com/photos/6r280_Z7Efc<br>
+        https://unsplash.com/photos/tBdkpxj3A7Q<br>
+        https://unsplash.com/photos/hv36zK2ivyo<br>
+        https://unsplash.com/photos/WrMW-GUbCng<br>
+        https://unsplash.com/photos/Eip7D2OybzA<br>
+        https://unsplash.com/photos/kKObh7tUPNc<br>
 
 ### Acknowledgements
