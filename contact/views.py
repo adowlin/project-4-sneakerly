@@ -10,14 +10,17 @@ def contact(request):
     """ View to send an email to site owners from contact form submissions """
     if request.method == 'POST':
         form = ContactForm(request.POST)
+        cust_email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
         if form.is_valid():
             form.save()
-            email_subject = f'New message from {form.["email"]}: \
-                {form.["subject"]}'
-            email_message = form.['message']
+            email_subject = f'New message from {cust_email}: \
+                {subject}'
+            email_message = message
             send_mail(
                 email_subject, email_message,
-                settings.DEFAULT_FROM_EMAIL)
+                settings.CONTACT_EMAIL, settings.ADMIN_EMAIL,)
             messages.success(
                 request, "Message sent successfully! \
                     We'll respond via email soon.")
