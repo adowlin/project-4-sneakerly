@@ -90,6 +90,152 @@ Manual testing was performed on the following elements that appear across all pa
     - External links open the correct external site in a new tab.
     - Contact & FAQs links direct to the internal site pages correctly.
     - Hovering over the footer links triggers the expected hover effect color & underline.
+- Page Headers:
+    - Header images appropriately resize responsively across all device sizes.
+    - Where page headers are present over the header images, an opaque overlay correctly covers the image, and header text appropriately re-sized across all device sizes.
+
+#### Home Page
+Manual testing was performed on the following elements that appear on the Home page;
+
+- Buttons:
+    - The "Create an Account" buttons only appear when the user is unauthenticated, and correctly direct to the registration page.
+    - The "Go to Profile" buttons correctly replace the "Create an Account" buttons only when the user is authenticated, and correctly direct to the profile page.
+    - The "See All Sneakers" button correctly directs to the products page.
+    - The bottom "Create an Account"/"Go to Profile" and "See All Sneakers" buttons correctly re-position from a full-width row each to two columns in a single row on larger screens.
+- Info Cards:
+    - The information cards correctly re-position from a full-width row each to two columns in a single row on larger screens.
+
+#### Register Page
+Manual testing was performed on the following elements that appear on the Register page;
+
+- Form:
+    - Input fields validate the input data as expected.
+    - The form submission button correctly creates a User in the database, and directs the user to the email confirmation page as expected.
+    - The "sign in" link correctly redirects to the "Log In" page.
+
+- Defensive programming works as expected - an authenticated user who tries to brute-force access the Register page is redirected back to the home page.
+
+#### Log In Page
+Manual testing was performed on the following elements that appear on the Log In page;
+
+- Form:
+    - Input fields validate the input data as expected.
+    - The form submission button correctly logs the user in and redirects to the home page.
+    - The "sign up" link correctly redirects to the "Register" page.
+
+- Defensive programming works as expected - an authenticated user who tries to brute-force access the Log In page is redirected back to the home page.
+
+#### Log Out Page
+Manual testing was performed on the following elements that appear on the Log Out page;
+
+- Button:
+    - The "Sign Out" correctly signs the user out of the session, and redirects back to the home page.
+
+- Defensive programming works as expected - an unauthenticated user who tries to brute-force access the Log Out page is redirected back to the login page.
+
+#### Profile Page
+Manual testing was performed on the following elements that appear on the Profile page;
+
+- Booking History:
+    - The table correctly appears only when the user has bookings attached to their user profile, and displays informative text if no bookings are attached.
+    - The table data displays the appropriate booking object information.
+    - Clicking the booking number directs to the booking details page as expected.
+    - The booking history details page displays the correct information for the specified booking.
+    - The booking history page displays a toast message notification stating the information relates to a past booking, as expected.
+
+- Default Delivery Info Form:
+    - Input fields validate the input data as expected.
+    - The form is blank where the user does not yet have delivery information saved, and pre-fills the form fields with their default delivery information if the information is present.
+    - The form submission button correctly adds or updates the user profile's default delivery information.
+
+- Defensive programming works as expected - an unauthenticated user who tries to brute-force access the Profile page is redirected back to the login page.
+
+#### All Sneakers (Products) Page
+Manual testing was performed on the following elements that appear on the Products page;
+
+- Product Cards:
+    - Product data is correctly iterated over to create a card for each product.
+    - Cards correctly re-position themselves from full-width on smaller screens to a grid layout on larger screens.
+    - The "Rent" buttons on each card direct to the appropriate product detail page for each product.
+
+#### Product Detail Pages
+Manual testing was performed on the following elements that appear on the Product Detail pages;
+
+- Product Info:
+    - The correct product information & image is displayed for the specified product.
+
+- Rental Date Selection Form:
+    - The date input field correctly allows the user to select a start date for their rental.
+    - The field does not, however, save the selected start date to attach it to the booking later on. See [Known Bugs](#known-bugs) for more detail.
+    - The Rental Days input field allows the user to enter their desired number of rental days, with validation, as expected.
+    - The "Rent" button correctly passes the rental days to the Bag view, and redirects to the "Confirm Booking" (Bag) page.
+    - The form fields are disabled when an unauthenticated user visits the page, as expected.
+    - The "Rent" button is replaced by information text when an unauthenticated user visits the page, as expected.
+
+#### Confirm Booking (Bag) Page
+Manual testing was performed on the following elements that appear on the Confirm Booking page;
+
+- Buttons:
+    - The "Cancel" button correctly directs the user back to the Product Detail page.
+    - The "Confirm" button correctly directs the user to the Checkout page.
+
+- Defensive programming works as expected - an unauthenticated user who tries to brute-force access the Bag page is redirected back to the login page.
+
+#### Checkout Page
+Manual testing was performed on the following elements that appear on the Checkout page;
+
+- On loading the page, a Stripe PaymentIntent for the total price is correctly created.
+
+- Booking Summary:
+    - The information displayed is correct for the specified product.
+    - The total price displayed is correctly calculated & displayed from the product price and rental days.
+    - The "Adjust Dates" button correctly re-directs the user back to the Product Detail page.
+
+- Checkout Form:
+    - Input fields validate the input data as expected.
+    - The form is blank where the user does not yet have delivery information saved, and pre-fills the form fields with their default delivery information if the information is present.
+    - The form submission button correctly adds or updates the user profile's default delivery information.
+    - On successfully submitting the form, a payment is created in Stripe as expected.
+    - If a card requiring authentication is used, the Stripe authentication modal is displayed as expected.
+    - The full-screen loading overlay correctly displays when the form is submitted.
+    - The form provides dynamic feedback for card errors where the payment is not successful.
+
+- Defensive programming works as expected - an unauthenticated user who tries to brute-force access the Checkout page is redirected back to the products page, with a toast message populated to let the user know that they cannot checkout.
+
+#### Checkout Success Page
+Manual testing was performed on the following elements that appear on the Checkout Success page;
+
+- Summary:
+    - The page displays the correct booking information for the specified booking number.
+
+- Email:
+    - The checkout success page's view correctly sends a confirmation email to the user's email address.
+
+- Defensive programming works as expected - an unauthenticated user who tries to brute-force access the Checkout Success page is redirected back to the login page.
+
+#### Blog Page
+Manual testing was performed on the following elements that appear on the Blog page;
+
+- Cards:
+    - Blog Post data is correctly iterated through to create a card for each blog post.
+    - The card for each post correctly displays the uploaded image, product name, and username of the user who created the post.
+
+- Buttons:
+    - The "Add Post" button only appears for authenticated users, as expected.
+    - The Edit & Delete icon buttons only appear for the authenticated superuser, and correctly direct to the Edit Post page, and action the Delete Post functionality respectively.
+
+- Defensive programming works as expected - an unauthenticated user who tries to brute-force access the Add/Edit/Delete Blog Post URL is redirected back to the login page. A non-superuser who tries to brute-force access to the Edit or Delete Blog Post URL is redirected back to the Blog page, with a toast message populated indicating that only admins can access those pages.
+
+#### FAQs & Contact Pages
+Manual testing was performed on the following elements that appear on the FAQs & Contact pages;
+
+- FAQs:
+    - Accordion correctly collapses each question when clicked to display the answer.
+
+- Contact Form:
+    - Form inputs are validated as expected.
+    - On submission, an email is sent to the account owner as expected.
+    - After submission, the page reloads with a toast message confirming that the message has been sent, as expected.
 
 ### Compatibility & Responsiveness
 
