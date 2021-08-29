@@ -278,6 +278,7 @@ To deploy this app on Heroku, the following steps were taken:
     - Profile Image: https://unsplash.com/photos/FHb3W_1idVs
     - Contact Image: https://unsplash.com/photos/H_Y6njzNUmw
     - Blog Image: https://unsplash.com/photos/l76tzNZhsok
+    - Error Image: https://unsplash.com/photos/52jRtc2S_VE
     - Product Images:<br>
         https://unsplash.com/photos/aDZ5YIuedQg<br>
         https://unsplash.com/photos/76w_eDO1u1E<br>
