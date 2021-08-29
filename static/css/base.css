@@ -246,7 +246,8 @@ body {
 
 /* ---------------------------------------- Log In */
 
-#login-subheader {
+#login-subheader,
+#login-subheader2 {
     color: rgb(82, 72, 156);
 }
 
