@@ -427,6 +427,21 @@ footer {
     text-shadow: 1px 1px rgb(235, 235, 235);
 }
 
+/* ---------------------------------------- Error Pages */
+
+#error-image {
+    background: url('/media/error-imgjpg') no-repeat scroll center;
+    background-size: cover;
+    z-index: -999;
+}
+
+.page-header > #error-image-head > h1 {
+    color: rgb(166, 221, 221);
+    font-size: 15vw;
+    margin-top: -25vh;
+    text-shadow: 2px 2px rgb(82, 72, 156);
+}
+
 /* ---------------------------------------- Media Queries */
 
 @media only screen and (min-width: 576px) {
@@ -438,7 +453,8 @@ footer {
 
     .page-header > #prod-image-head > h1,
     .page-header > #checkout-image-head > h1,
-    .page-header > #auth-image-head > h1 {
+    .page-header > #auth-image-head > h1,
+    .page-header > #error-image-head {
         font-size: 10vw;
     }
     

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="head-image-shape" id="error-image"><div class="overlay"></div></div>
+    <div class="row" id="error-image-head">
+        <h1 class="col-12 text-center">Error!</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row sub-header">
+        <h2 class="text-center col-12">Oops, something went wrong!</h2>
+        <a href="{% url 'home' %}" class="btn cta--btn text-center col-10 col-sm-6 offset-1 offset-sm-3 primaryAction mt-3"><i class="bi bi-box-arrow-left"></i>Go Back Home</a>
+    </div>
+{% endblock %}
