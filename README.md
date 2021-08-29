@@ -151,11 +151,13 @@ The User Experience for this site was planned & developed using the [5 Planes of
 - [PostgreSQL](https://www.postgresql.org/)
     - Used with Heroku to store the live site's relational database.
 
-### APIs
+### APIs / Other
 - [Twilio SendGrid](https://www.twilio.com/sendgrid/email-api)
     - Used via Python back-end to send emails to the site owner from the contact form.
 - [Stripe Payments](https://stripe.com/en-ie/payments)
     - Used Stripe Elements via JavaScript for the Checkout's front-end card element, and to create payments from the back-end via Python.
+- [Amazon AWS S3](https://aws.amazon.com/s3/)
+    - Used to store the live project's static and media files
 
 ## Testing
 
