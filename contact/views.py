@@ -12,12 +12,12 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            email_subject = f'New message {form.cleaned_data["email"]}: \
-                {form.cleaned_data["subject"]}'
-            email_message = form.cleaned_data['message']
+            email_subject = f'New message from {form.["email"]}: \
+                {form.["subject"]}'
+            email_message = form.['message']
             send_mail(
                 email_subject, email_message,
-                settings.CONTACT_EMAIL, settings.ADMIN_EMAIL)
+                settings.DEFAULT_FROM_EMAIL)
             messages.success(
                 request, "Message sent successfully! \
                     We'll respond via email soon.")
